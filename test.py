@@ -17,6 +17,7 @@ results = g.query(query)
 ontology_classes = [str(result['class']) for result in results]
 
 # Collect ontology classes in array and sets it to lower case. Then saves to file.
+
 ontology_classesLC = []
 for ontology_class in ontology_classes:
     ontology_classesLC.append(ontology_class.removeprefix("http://dbpedia.org/ontology/").lower())
@@ -24,7 +25,8 @@ with open('ontology_classes.txt', 'w') as f:
     f.write("\n".join(ontology_classesLC))
 
 # Collect spaCy labels in array and sets it to lower case. Then saves to file.
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_lg")
+print(nlp)
 spacy_labelsLC = []
 spacy_labels = nlp.get_pipe("ner").labels
 for label in spacy_labels:
@@ -109,7 +111,7 @@ doc = nlp(text)
 
 triples = [(ent.text, 'is_a', ent.label_) for ent in doc.ents if ent.label_ in ontology_classes]
 
-#for triple in triples:
-    #print(triple)
+for triple in triples:
+    print(triple)
 
 # TODO: export triples in correct data type
