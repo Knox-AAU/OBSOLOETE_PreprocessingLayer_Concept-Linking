@@ -53,8 +53,51 @@ def queryLabels():
             classesDict[className] = []
         classesDict[className].append({labelLang: label})
     
-    #with open("../documents/ontology_CL.txt", 'w') as f:
-     #   for key, value in classesDict.items():
-      #      f.write(f'{key}: {value}\n')
-    
+    with open("../documents/ontology_CL.txt", 'w') as f:
+       for key, value in classesDict.items():
+          f.write(f'{key}: {value}\n')
     return classesDict
+
+def generateTriples(JSONObject, dict):
+    triples = []
+    for object in JSONObject:
+        lang = object["language"]
+        for sentence in object['sentences']:
+            sent = sentence['sentence']
+            ems = sentence['entityMentions']
+
+            print(sentence['sentence'])
+            new_sent = sent
+
+            ems_indices = []
+            for em in ems:
+                ems_indices.append((em['startIndex'], em['endIndex']))
+
+            #sletter de ord i sætningen, der er EMs
+            for start_index, end_index in reversed(ems_indices):
+                new_sent = new_sent[:start_index] + new_sent[end_index+2:]
+            
+            new_sent = new_sent.removesuffix(".")
+            words = new_sent.split(" ")
+
+            #words der findes i ontologyen
+            typeWords = []
+
+            #Vi's translate funktion kommer her
+            """ if lang != 'en':
+                for word in words:
+                    word = translate(word) """
+            
+            #Opdatér til at søge på labels(values) - ikke classes(keys)
+            for word in words:
+                if word.capitalize() in dict:
+                    typeWords.append(word)
+
+            #opdatér passende IRI-domain, når vi har snakket med gruppe C
+            for word in typeWords:
+                for em in ems:
+                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word))
+    return triples
+    
+    
+
