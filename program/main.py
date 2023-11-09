@@ -1,4 +1,4 @@
-from functions.ontology import generateOntologyClasses
+from functions.ontology import *
 from functions.spacy import *
 
 
@@ -8,14 +8,18 @@ def generateTXTfiles():
     generateSpacyMatches()
     generateSpacyUnmatchedExplanations()
 
-
 # temp
 fakeJSON = [{"meget": "meget"}, {"fake": "fake"}]
 
-generateTXTfiles()
+#generateTXTfiles()
+queryLabels()
 
-labelsDict = linkSpacyLabels()
+def untrainSpacySolution():
+    labelsDict = linkSpacyLabels()
+    triples = createMagicUnfinished(labelsDict, fakeJSON)
+    #print(triples)
 
-triples = createMagicUnfinished(labelsDict, fakeJSON)
+def stringComparisonSolution():
+    OntologyDict = queryLabels()
+    
 
-print(triples)
