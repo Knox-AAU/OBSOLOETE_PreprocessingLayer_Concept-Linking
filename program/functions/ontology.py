@@ -66,8 +66,6 @@ def generateTriples(JSONObject, classesDict):
         for sentence in object['sentences']:
             sent = sentence['sentence']
             ems = sentence['entityMentions']
-
-            print(sentence['sentence'])
             new_sent = sent
 
             ems_indices = []
@@ -91,7 +89,7 @@ def generateTriples(JSONObject, classesDict):
                     words[i] = translateWordToEn(word, language)
 
             # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
-            SIMILARITY_REQ: 0.9
+            SIMILARITY_REQ = 0.9
             for word in words:
                 for className, labelsList in classesDict.items():
                     for label_dict in labelsList:
@@ -100,7 +98,6 @@ def generateTriples(JSONObject, classesDict):
                             break  # Break for speed. Once a match is found, we don't need to search further.
  
             #HUSK opdatér passende IRI-domain for predicate, når vi har snakket med gruppe C
-            print(matchingWords)
             for word in matchingWords:
                 for em in ems:
                     triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
