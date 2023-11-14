@@ -22,4 +22,4 @@ def untrainSpacySolution():
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
-    print(triples)
+    print(*triples, sep="\n")
