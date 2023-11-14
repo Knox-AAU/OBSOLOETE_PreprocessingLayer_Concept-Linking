@@ -20,7 +20,7 @@ def clearFile(path):
     with open(path, "w") as f:
         f.write("")
 
-def translateWord(word):
+def translateWordToEn(word, language):
     translator = Translator()
     translation = translator.translate(word, src = "da")
     print(translation.text)

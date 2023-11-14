@@ -58,10 +58,11 @@ def queryLabels():
           f.write(f'{key}: {value}\n')
     return classesDict
 
-def generateTriples(JSONObject, dict):
+def generateTriples(JSONObject, classesDict):
     triples = []
     for object in JSONObject:
-        lang = object["language"]
+        language = object["language"]
+        searchLanguage = "en"
         for sentence in object['sentences']:
             sent = sentence['sentence']
             ems = sentence['entityMentions']
@@ -81,23 +82,37 @@ def generateTriples(JSONObject, dict):
             words = new_sent.split(" ")
 
             #words der findes i ontologyen
-            typeWords = []
+            matchingWords = []
 
-            #Vi's translate funktion kommer her
-            """ if lang != 'en':
-                for word in words:
-                    word = translate(word) """
+            for class_name, labels_list in classesDict.items():
+                for label_dict in labels_list:
+                    # Check if the search language is in the label_dict
+                    if searchLanguage in label_dict:
+                        label = label_dict[searchLanguage]
+                        for word in words:
+                            if word.lower() in label.lower():
+                                matchingWords.append({class_name: label})
+                    else:
+                        # If the search language is not found, try translating the word and check in English labels
+                        for word in words:
+                            translated_word = translateWordToEn(word, language)
+                            if translated_word.lower() in label_dict.get('en', '').lower():
+                                matchingWords.append({class_name: label_dict.get('en', '')})
             
-            #Opdatér til at søge på labels(values) - ikke classes(keys)
-            for word in words:
-                if word.capitalize() in dict:
-                    typeWords.append(word)
-
             #opdatér passende IRI-domain, når vi har snakket med gruppe C
-            for word in typeWords:
+            for word in matchingWords:
                 for em in ems:
                     triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word))
     return triples
     
     
 
+""" #Vi's translate funktion kommer her
+            if lang != 'en':
+                for word in words:
+                    word = translate(word)
+            
+            #Opdatér til at søge på labels(values) - ikke classes(keys)
+            for word in words:
+                if word.capitalize() in dict:
+                    typeWords.append(word) """
