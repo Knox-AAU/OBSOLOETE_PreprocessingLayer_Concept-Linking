@@ -58,10 +58,11 @@ def queryLabels():
           f.write(f'{key}: {value}\n')
     return classesDict
 
-def generateTriples(JSONObject, dict):
+def generateTriples(JSONObject, classesDict):
     triples = []
     for object in JSONObject:
-        lang = object["language"]
+        language = object["language"]
+        ontologyLanguage = "en"
         for sentence in object['sentences']:
             sent = sentence['sentence']
             ems = sentence['entityMentions']
@@ -80,24 +81,27 @@ def generateTriples(JSONObject, dict):
             new_sent = new_sent.removesuffix(".")
             words = new_sent.split(" ")
 
+
             #words der findes i ontologyen
-            typeWords = []
+            matchingWords = []
 
-            #Vi's translate funktion kommer her
-            """ if lang != 'en':
-                for word in words:
-                    word = translate(word) """
-            
-            #Opdatér til at søge på labels(values) - ikke classes(keys)
+            # Hvis vores input ikke er engelsk, oversæt hver ord til engelsk.
+            if language.lower() != ontologyLanguage:
+                for i, word in enumerate(words):
+                    words[i] = translateWordToEn(word, language)
+
+            # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
+            SIMILARITY_REQ: 0.9
             for word in words:
-                if word.capitalize() in dict:
-                    typeWords.append(word)
-
-            #opdatér passende IRI-domain, når vi har snakket med gruppe C
-            for word in typeWords:
+                for className, labelsList in classesDict.items():
+                    for label_dict in labelsList:
+                        if ontologyLanguage in label_dict and (similar(word.lower(), label_dict[ontologyLanguage].lower()) >= SIMILARITY_REQ):
+                            matchingWords.append({'className': className, 'label': word})
+                            break  # Break for speed. Once a match is found, we don't need to search further.
+ 
+            #HUSK opdatér passende IRI-domain for predicate, når vi har snakket med gruppe C
+            print(matchingWords)
+            for word in matchingWords:
                 for em in ems:
-                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word))
+                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
     return triples
-    
-    
-
