@@ -1,0 +1,27 @@
+[
+  {
+    "filename": "path/to/Artikel.txt",
+    "language": "en",
+    "sentences": [
+      {
+        "sentence": "Barrack Obama is married to the Michelle Obama person.",
+        "sentenceStartIndex": 20,
+        "sentenceEndIndex": 62,
+        "entityMentions": [
+          {
+            "name": "Barrack Obama",
+            "startIndex": 0,
+            "endIndex": 12,
+            "iri": "knox-kb01.srv.aau.dk/Barack_Obama"
+          },
+          {
+            "name": "Michelle Obama",
+            "startIndex": 31,
+            "endIndex": 44,
+            "iri": "knox-kb01.srv.aau.dk/Michele_Obama"
+          }
+        ]
+      }
+    ]
+  }
+]
