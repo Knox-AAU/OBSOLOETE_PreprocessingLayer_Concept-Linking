@@ -23,5 +23,3 @@ def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
     print(triples)
-
-stringComparisonSolution()

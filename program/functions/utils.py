@@ -1,3 +1,6 @@
+from googletrans import Translator, constants
+from pprint import pprint
+
 def writeFile(path, content):
     with open(path, "w") as f:
         f.write(content)
@@ -16,3 +19,8 @@ def readFile(path):
 def clearFile(path):
     with open(path, "w") as f:
         f.write("")
+
+def translateWord(word):
+    translator = Translator()
+    translation = translator.translate(word, src = "da")
+    print(translation.text)
