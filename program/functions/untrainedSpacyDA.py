@@ -15,7 +15,7 @@ doc = english_ner(text)
 
 #spacy_labels = nlp.get_pipe("ner").labels
 #for label in spacy_labels:
-#    print(label)
+#    print(labe
 
 for ent in doc.ents:
     print(ent.text, ent.label)

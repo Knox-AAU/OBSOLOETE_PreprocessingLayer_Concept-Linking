@@ -95,7 +95,7 @@ def createMagicUnfinished(labelsDict, jsonFilePath):
     with open(jsonFilePath, "r") as jsonFile:
         data = json.load(jsonFile)
     
-    #Spacy dansk, hvordan virker det?
+    #Spacy dansk, hvordan virker det
 
     text = data.get("text", "")
 
