@@ -1,0 +1,88 @@
+[
+  {
+    "fileName": "Artikel.txt",
+    "sentences": [
+      {
+        "sentence": "Since the sudden exit of the controversial CEO Martin Kjær last week, both he and the executive board in Region North Jutland have been in hiding.\n\n",
+        "startIndex": 0,
+        "endIndex": 148,
+        "entityMentions": [
+          {
+            "name": "Martin Kjær",
+            "startIndex": 47,
+            "endIndex": 58,
+            "expectedType": "Person"
+          },
+          {
+            "name": "last week",
+            "startIndex": 59,
+            "endIndex": 68,
+            "expectedType": "Time"
+          },
+          {
+            "name": "Region North Jutland",
+            "startIndex": 105,
+            "endIndex": 125,
+            "expectedType": "Place"
+          }
+        ]
+      },
+      {
+        "sentence": "But now the project director for the scandal-plagued construction of the super hospital in Aalborg opens up a bit in a post on the LinkedIn social media.\n\n",
+        "startIndex": 206,
+        "endIndex": 361,
+        "entityMentions": [
+          {
+            "name": "Aalborg",
+            "startIndex": 91,
+            "endIndex": 98,
+            "expectedType": "City"
+          }
+        ]
+      },
+      {
+        "sentence": "Martin Kjær does not say directly why he has resigned from his position, but he writes that he has not regretted taking the job just a year and a half ago.\n\n",
+        "startIndex": 361,
+        "endIndex": 518,
+        "entityMentions": [
+          {
+            "name": "Martin Kjær",
+            "startIndex": 0,
+            "endIndex": 11,
+            "expectedType": "Person"
+          },
+          {
+            "name": "just a year and a half ago",
+            "startIndex": 128,
+            "endIndex": 154,
+            "expectedType": "Time"
+          }
+        ]
+      },
+      {
+        "sentence": "According to Martin Kjær, it has been \"surreal\" to see himself in the media, after the Norwegian Working Environment Authority took action against the department he headed in July.\n\n-",
+        "startIndex": 518,
+        "endIndex": 701,
+        "entityMentions": [
+          {
+            "name": "Martin Kjær",
+            "startIndex": 13,
+            "endIndex": 24
+          },
+          {
+            "name": "the Norwegian Working Environment Authority",
+            "startIndex": 83,
+            "endIndex": 126,
+            "expectedType": "Organisation"
+          },
+          {
+            "name": "July",
+            "startIndex": 175,
+            "endIndex": 179,
+            "expectedType": "Time"
+          }
+        ]
+      }
+    ]
+  }
+]

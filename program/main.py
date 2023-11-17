@@ -7,20 +7,23 @@ data = json.load(f)
 
 def generateTXTfiles():
     generateOntologyClasses()
+    generateOntologyDatatypes()
     generateSpacyLabels()
     generateSpacyMatches()
     generateSpacyUnmatchedExplanations()
-
+#generateOntologyClasses()
+generateOntologyDatatypes()
 
 #generateTXTfiles()
 
-def untrainSpacySolution():
+def untrainedSpacySolution():
     labelsDict = linkSpacyLabels()
     triples = createMagicUnfinished(labelsDict, data)
-    print(triples)
+    print(*triples, sep="\n")
+#untrainedSpacySolution()
 
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
     print(*triples, sep="\n")
-stringComparisonSolution()
+#stringComparisonSolution()
