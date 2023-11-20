@@ -1,5 +1,5 @@
 from functions.ontology import *
-from functions.spacy import *
+from functions.untrainedSpacy import *
 import json
 
 f = open("../files/test.JSON")
@@ -17,9 +17,11 @@ def generateTXTfiles():
 def untrainSpacySolution():
     labelsDict = linkSpacyLabels()
     triples = createMagicUnfinished(labelsDict, data)
-    print(triples)
+    print(*triples, sep="\n")
+untrainSpacySolution()
 
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
-    print(triples)
+    print(*triples, sep="\n")
+#stringComparisonSolution()

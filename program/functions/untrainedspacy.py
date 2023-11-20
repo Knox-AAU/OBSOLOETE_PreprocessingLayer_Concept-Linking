@@ -1,9 +1,8 @@
 import spacy
-from googletrans.utils import *
 import json
-from utils import readFile
+from .utils import *
 
-nlp = spacy.load("en_core_clsweb_lg")
+nlp = spacy.load("en_core_web_lg")
 
 
 def generateSpacyLabels():
@@ -90,29 +89,40 @@ def linkUnmatched():
     return labels_dict
 
 
-def createMagicUnfinished(labelsDict, jsonFilePath):
+def createMagicUnfinished(labelsDict, object):
     # Halløj Vi. Denne klasse skal bruge labelsDict (din dictionary) i stedet for de predefinerede ontology_classes herunder. Den skal også tage JSON input i stedet for predefineret tekst.
     with open(jsonFilePath, "r") as jsonFile:
         data = json.load(jsonFile)
     
     #Spacy dansk, hvordan virker det
 
-    text = data.get("text", "")
+    triples = []
+    for object in object:
+        language = object["language"]
 
-    doc = nlp(text)
+        for sentence in object['sentences']:
+            sent = nlp(sentence['sentence'])
+            ems = sentence['entityMentions']
+            
+            #print("Original: ", sent)
+            #translate from detected language to English
+            if language != "en":
+                translated_sentence = translateWordToEn(sentence['sentence'], language)
+                sent = nlp(translated_sentence)
+        
+            print("Translated: ", sent)
 
-    triples = [
-        (ent.text, "is_a", labelsDict.get(ent.label_, ent.label_))
-        for ent in doc.ents
-        if ent.label_ in labelsDict
-    ]
+            for ent in sent.ents:
+                for em in ems:
+                    #triple = (em['iri'], "rdfs:type/is_a", labelsDict.get(ent.label_, ent.label_))
+                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + )
+                    triples.append(triple)            
+                      
 
- 
-    print(triples)
 
-    # TODO: export triples in correct data type
+                # tripes: ent skal være iri og http://dbpedia.org/ontology skal med i label
+                # Data fx money, time, ligger i http://dbpedia.org/datatype, de skal med
+            # triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
 
     return triples
-
-createMagicUnfinished(linkMatched(),"test.JSON")
 
