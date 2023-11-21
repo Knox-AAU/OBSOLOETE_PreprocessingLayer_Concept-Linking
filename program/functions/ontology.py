@@ -1,6 +1,29 @@
 from .utils import *
 from rdflib import Graph, URIRef, Namespace
 
+def generateOntologyDatatypes():
+    g = Graph()
+    g.parse("files/ontology.ttl", format="ttl")
+
+    # TODO: Get all datatype properties from ontology.
+    query = """
+        SELECT DISTINCT ?datatype
+        WHERE {
+            ?datatype a rdfs:Datatype .
+        }
+    """
+
+    result = g.query(query)
+
+    # Collect datatype properties in an array and set them to lowercase. Then save to file.
+    datatype_properties_lc = [
+        str(row.datatype).removeprefix("http://dbpedia.org/datatype/")
+        for row in result
+    ]
+
+    # Save to file using the provided writeFile function
+    writeFile("../documents/ontology_datatypes.txt", "\n".join(datatype_properties_lc))
+
 
 def generateOntologyClasses():
     g = Graph()
@@ -22,7 +45,7 @@ def generateOntologyClasses():
     ontology_classesLC = []
     for ontology_class in ontology_classes:
         ontology_classesLC.append(
-            ontology_class.removeprefix("http://dbpedia.org/ontology/").lower()
+            ontology_class.removeprefix("http://dbpedia.org/ontology/")
         )
     writeFile("../documents/ontology_classes.txt", "\n".join(ontology_classesLC))
 
@@ -96,7 +119,8 @@ def generateTriples(JSONObject, dict):
             #opdatér passende IRI-domain, når vi har snakket med gruppe C
             for word in typeWords:
                 for em in ems:
-                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word))
+
+                    triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
     return triples
     
     
