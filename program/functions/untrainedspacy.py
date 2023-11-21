@@ -1,4 +1,5 @@
 import spacy
+import json
 from .utils import *
 
 nlp = spacy.load("en_core_web_lg")
@@ -88,36 +89,42 @@ def linkUnmatched():
     return labels_dict
 
 
-def createMagicUnfinished(labelsDict, JSONfile):
-    # Halløj Vi. Denne klasse skal bruge labelsDict (din dictionary) i stedet for de predefinerede ontology_classes herunder. Den skal også tage JSON input i stedet for predefineret tekst.
-    ontology_classes = {
-        "PERSON",
-        "FAC",
-        "ORG",
-        "DATE",
-        "NORP",
-    }
-    # TODO: Take correct data format (JSON) instead of string
+def createMagicUnfinished(labelsDict, JSONobject):
 
-    text = (
-        "When Sebastian Thrun started working on self-driving cars at "
-        "Google in 2007, few people outside of the company took him "
-        "seriously. “I can tell you very senior CEOs of major American "
-        "car companies would shake my hand and turn away because I wasn’t "
-        "worth talking to,” said Thrun, in an interview with Recode earlier "
-        "this week. This happened at the Madison Square Garden in New York City"
-    )
-    doc = nlp(text)
+    jsonFilePath = "../files/test.JSON"
 
-    triples = [
-        (ent.text, "is_a", ent.label_)
-        for ent in doc.ents
-        if ent.label_ in ontology_classes
-    ]
+    with open(jsonFilePath, "r") as jsonFile:
+        data = json.load(jsonFile)
+    
 
-    # for triple in triples:
-    # print(triple)
+    triples = []
+    for obj in JSONobject:
+        language = obj["language"]
 
-    # TODO: export triples in correct data type
+        for sentence in obj['sentences']:
+            sent = nlp(sentence['sentence'])
+            ems = sentence['entityMentions']
+            
+            #translate from detected language to English
+            if language != "en":
+                translated_sentence = translateWordToEn(sentence['sentence'], language)
+                sent = nlp(translated_sentence)
 
+            for ent in sent.ents:
+                for em in ems:
+                    print('ent.label_: ', ent.label_)
+
+                    # her tjekker du ontology.ttl om ent.label_ er owl:dataypeproperty eller owl:class
+
+                    # if owl:class
+                    # dbpedia_path = "http://dbpedia.org/ontology/"
+                    # elif owl:datatypeproperty'
+                    # dbpedia_path = "http://dbpedia.org/datatype/"
+                    # triple = (em['iri'], "rdfs:type/is_a", dbpedia_path + labelsDict.get(ent.label_.lower(), ent.label_))
+
+                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + labelsDict.get(ent.label_.lower(), ent.label_))
+
+                    triples.append(triple)
+                      
     return triples
+
