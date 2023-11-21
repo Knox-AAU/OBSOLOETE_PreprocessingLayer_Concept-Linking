@@ -89,40 +89,42 @@ def linkUnmatched():
     return labels_dict
 
 
-def createMagicUnfinished(labelsDict, object):
-    # Halløj Vi. Denne klasse skal bruge labelsDict (din dictionary) i stedet for de predefinerede ontology_classes herunder. Den skal også tage JSON input i stedet for predefineret tekst.
+def createMagicUnfinished(labelsDict, JSONobject):
+
+    jsonFilePath = "../files/test.JSON"
+
     with open(jsonFilePath, "r") as jsonFile:
         data = json.load(jsonFile)
     
-    #Spacy dansk, hvordan virker det
 
     triples = []
-    for object in object:
-        language = object["language"]
+    for obj in JSONobject:
+        language = obj["language"]
 
-        for sentence in object['sentences']:
+        for sentence in obj['sentences']:
             sent = nlp(sentence['sentence'])
             ems = sentence['entityMentions']
             
-            #print("Original: ", sent)
             #translate from detected language to English
             if language != "en":
                 translated_sentence = translateWordToEn(sentence['sentence'], language)
                 sent = nlp(translated_sentence)
-        
-            print("Translated: ", sent)
 
             for ent in sent.ents:
                 for em in ems:
-                    #triple = (em['iri'], "rdfs:type/is_a", labelsDict.get(ent.label_, ent.label_))
-                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + )
-                    triples.append(triple)            
+                    print('ent.label_: ', ent.label_)
+
+                    # her tjekker du ontology.ttl om ent.label_ er owl:dataypeproperty eller owl:class
+
+                    # if owl:class
+                    # dbpedia_path = "http://dbpedia.org/ontology/"
+                    # elif owl:datatypeproperty'
+                    # dbpedia_path = "http://dbpedia.org/datatype/"
+                    # triple = (em['iri'], "rdfs:type/is_a", dbpedia_path + labelsDict.get(ent.label_.lower(), ent.label_))
+
+                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + labelsDict.get(ent.label_.lower(), ent.label_))
+
+                    triples.append(triple)
                       
-
-
-                # tripes: ent skal være iri og http://dbpedia.org/ontology skal med i label
-                # Data fx money, time, ligger i http://dbpedia.org/datatype, de skal med
-            # triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
-
     return triples
 
