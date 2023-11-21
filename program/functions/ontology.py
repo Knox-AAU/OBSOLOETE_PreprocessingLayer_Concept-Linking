@@ -113,7 +113,7 @@ def generateTriples(JSONObject, classesDict):
             #HUSK opdatér passende IRI-domain for predicate, når vi har snakket med gruppe C
             for word in matchingWords:
                 for em in ems:
-                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
+                    triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
     return triples
 
 # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.

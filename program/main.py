@@ -12,7 +12,7 @@ def generateTXTfiles():
     generateSpacyMatches()
     generateSpacyUnmatchedExplanations()
 #generateOntologyClasses()
-generateOntologyDatatypes()
+#generateOntologyDatatypes()
 
 #generateTXTfiles()
 
@@ -25,5 +25,9 @@ def untrainedSpacySolution():
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
-    print(*triples, sep="\n")
-#stringComparisonSolution()
+    # Convert the array to a JSON string
+    writeFile("../files/output.json", json.dumps(triples))
+
+    
+        
+stringComparisonSolution()
