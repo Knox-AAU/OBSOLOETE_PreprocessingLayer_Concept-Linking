@@ -1,9 +1,8 @@
 import spacy
-from googletrans.utils import *
 import json
-from utils import readFile
+from .utils import *
 
-nlp = spacy.load("en_core_clsweb_lg")
+nlp = spacy.load("en_core_web_lg")
 
 
 def generateSpacyLabels():
@@ -90,29 +89,42 @@ def linkUnmatched():
     return labels_dict
 
 
-def createMagicUnfinished(labelsDict, jsonFilePath):
-    # Halløj Vi. Denne klasse skal bruge labelsDict (din dictionary) i stedet for de predefinerede ontology_classes herunder. Den skal også tage JSON input i stedet for predefineret tekst.
+def createMagicUnfinished(labelsDict, JSONobject):
+
+    jsonFilePath = "../files/test.JSON"
+
     with open(jsonFilePath, "r") as jsonFile:
         data = json.load(jsonFile)
     
-    #Spacy dansk, hvordan virker det?
 
-    text = data.get("text", "")
+    triples = []
+    for obj in JSONobject:
+        language = obj["language"]
 
-    doc = nlp(text)
+        for sentence in obj['sentences']:
+            sent = nlp(sentence['sentence'])
+            ems = sentence['entityMentions']
+            
+            #translate from detected language to English
+            if language != "en":
+                translated_sentence = translateWordToEn(sentence['sentence'], language)
+                sent = nlp(translated_sentence)
 
-    triples = [
-        (ent.text, "is_a", labelsDict.get(ent.label_, ent.label_))
-        for ent in doc.ents
-        if ent.label_ in labelsDict
-    ]
+            for ent in sent.ents:
+                for em in ems:
+                    print('ent.label_: ', ent.label_)
 
- 
-    print(triples)
+                    # her tjekker du ontology.ttl om ent.label_ er owl:dataypeproperty eller owl:class
 
-    # TODO: export triples in correct data type
+                    # if owl:class
+                    # dbpedia_path = "http://dbpedia.org/ontology/"
+                    # elif owl:datatypeproperty'
+                    # dbpedia_path = "http://dbpedia.org/datatype/"
+                    # triple = (em['iri'], "rdfs:type/is_a", dbpedia_path + labelsDict.get(ent.label_.lower(), ent.label_))
 
+                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + labelsDict.get(ent.label_.lower(), ent.label_))
+
+                    triples.append(triple)
+                      
     return triples
-
-createMagicUnfinished(linkMatched(),"test.JSON")
 

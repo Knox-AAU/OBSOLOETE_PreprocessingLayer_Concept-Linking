@@ -1,6 +1,29 @@
 from .utils import *
 from rdflib import Graph, URIRef, Namespace
 
+def generateOntologyDatatypes():
+    g = Graph()
+    g.parse("files/ontology.ttl", format="ttl")
+
+    # TODO: Get all datatype properties from ontology.
+    query = """
+        SELECT DISTINCT ?datatype
+        WHERE {
+            ?datatype a rdfs:Datatype .
+        }
+    """
+
+    result = g.query(query)
+
+    # Collect datatype properties in an array and set them to lowercase. Then save to file.
+    datatype_properties_lc = [
+        str(row.datatype).removeprefix("http://dbpedia.org/datatype/")
+        for row in result
+    ]
+
+    # Save to file using the provided writeFile function
+    writeFile("../documents/ontology_datatypes.txt", "\n".join(datatype_properties_lc))
+
 
 def generateOntologyClasses():
     g = Graph()
@@ -22,7 +45,7 @@ def generateOntologyClasses():
     ontology_classesLC = []
     for ontology_class in ontology_classes:
         ontology_classesLC.append(
-            ontology_class.removeprefix("http://dbpedia.org/ontology/").lower()
+            ontology_class.removeprefix("http://dbpedia.org/ontology/")
         )
     writeFile("../documents/ontology_classes.txt", "\n".join(ontology_classesLC))
 
@@ -58,14 +81,15 @@ def queryLabels():
           f.write(f'{key}: {value}\n')
     return classesDict
 
-def generateTriples(JSONObject, classesDict):
+def generateTriples(JSONObject, dict):
     triples = []
     for object in JSONObject:
-        language = object["language"]
-        ontologyLanguage = "en"
+        lang = object["language"]
         for sentence in object['sentences']:
             sent = sentence['sentence']
             ems = sentence['entityMentions']
+
+            print(sentence['sentence'])
             new_sent = sent
 
             ems_indices = []
@@ -79,43 +103,25 @@ def generateTriples(JSONObject, classesDict):
             new_sent = new_sent.removesuffix(".")
             words = new_sent.split(" ")
 
-            matchingWords = [] #words der findes i ontologyen
-            SIMILARITY_REQ = 0.9 #minimumkrav til string similarity.
+            #words der findes i ontologyen
+            typeWords = []
 
-            if language is ontologyLanguage:
-                matchingWords = findEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ)
-            else:
-                matchingWords = findNonEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ, language)
- 
-            #HUSK opdatér passende IRI-domain for predicate, når vi har snakket med gruppe C
-            for word in matchingWords:
+            #Vi's translate funktion kommer her
+            """ if lang != 'en':
+                for word in words:
+                    word = translate(word) """
+            
+            #Opdatér til at søge på labels(values) - ikke classes(keys)
+            for word in words:
+                if word.capitalize() in dict:
+                    typeWords.append(word)
+
+            #opdatér passende IRI-domain, når vi har snakket med gruppe C
+            for word in typeWords:
                 for em in ems:
-                    triples.append((em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + word['className']))
+
+                    triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
     return triples
+    
+    
 
-# For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
-def findEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ):
-    for word in words:
-                for className, labelsList in classesDict.items():
-                    for label_dict in labelsList:
-                        if 'en' in label_dict and similar(word.lower(), label_dict['en'].lower()) >= SIMILARITY_REQ:
-                            matchingWords.append({'className': className, 'label': word})
-                            break
-    return matchingWords
-
-# Samme som findEnMatches, men tjekker efter et label match på originalsproget. Hvis der ikke findes et label på sproget, så oversætter vi og leder efter et passende engelsk label.
-def findNonEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ, language):
-    translatedWords = []
-    for word in words:
-        translatedWords.append(translateWordToEn(word, language))
-
-    for i, word in enumerate(words):
-                for className, labelsList in classesDict.items():
-                    for label_dict in labelsList:
-                        if language in label_dict and similar(word.lower(), label_dict[language].lower()) >= SIMILARITY_REQ:
-                            matchingWords.append({'className': className, 'label': word})
-                            break  
-                        elif 'en' in label_dict and similar(translatedWords[i].lower(), label_dict['en'].lower()) >= SIMILARITY_REQ:
-                            matchingWords.append({'className': className, 'label': word})
-                            break
-    return matchingWords

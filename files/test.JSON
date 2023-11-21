@@ -4,7 +4,7 @@
     "language": "en",
     "sentences": [
       {
-        "sentence": "Barrack Obama is married to the Michelle Obama person moss.",
+        "sentence": "Barrack Obama is married to the Michelle Obama person.",
         "sentenceStartIndex": 20,
         "sentenceEndIndex": 62,
         "entityMentions": [
@@ -19,38 +19,6 @@
             "startIndex": 31,
             "endIndex": 44,
             "iri": "knox-kb01.srv.aau.dk/Michele_Obama"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "filename": "path/to/NewArtikel.txt",
-    "language": "da",
-    "sentences": [
-      {
-        "sentence": "Lucas har en stor organisation.",
-        "sentenceStartIndex": 0,
-        "sentenceEndIndex": 35,
-        "entityMentions": [
-          {
-            "name": "Lucas",
-            "startIndex": 0,
-            "endIndex": 4,
-            "iri": "knox-kb01.srv.aau.dk/Lucas"
-          }
-        ]
-      },
-      {
-        "sentence": "Der er sket et Corona udbrud.",
-        "sentenceStartIndex": 0,
-        "sentenceEndIndex": 33,
-        "entityMentions": [
-          {
-            "name": "Corona",
-            "startIndex": 14,
-            "endIndex": 19,
-            "iri": "knox-kb01.srv.aau.dk/Corona"
           }
         ]
       }

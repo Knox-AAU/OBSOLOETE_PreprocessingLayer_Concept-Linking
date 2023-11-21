@@ -21,25 +21,16 @@ git clone https://github.com/Knox-AAU/PreprocessingLayer_Concept-Linking
 ### Initial Setup
 
 - Navigate to root folder
-- Run the following command for installing all requirements:
+- run the following command for installing all requirements:
 
 ```
 pip install -r requirements.txt
 ```
 
-### Adding modules
-
-- Navigate to root folder.
-- Run the following command to add all installed modules:
-
-```
-pip freeze > requirements.txt
-```
-
 ### Executing program
 
-- Navigate to main.py in Program directory
-- Run main.py with Python
+- navigate to main.py in Program directory
+- run main.py with Python
 
 ```
 python .\program\main.py

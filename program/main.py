@@ -1,5 +1,5 @@
 from functions.ontology import *
-from functions.spacy import *
+from functions.untrainedSpacy import *
 import json
 
 f = open("../files/test.JSON")
@@ -7,20 +7,28 @@ data = json.load(f)
 
 def generateTXTfiles():
     generateOntologyClasses()
+    generateOntologyDatatypes()
     generateSpacyLabels()
     generateSpacyMatches()
     generateSpacyUnmatchedExplanations()
-
+#generateOntologyClasses()
+#generateOntologyDatatypes()
 
 #generateTXTfiles()
 
-def untrainSpacySolution():
+def untrainedSpacySolution():
     labelsDict = linkSpacyLabels()
     triples = createMagicUnfinished(labelsDict, data)
-    print(triples)
+    print(*triples, sep="\n")
+
+#untrainedSpacySolution()
 
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
-    print(*triples, sep="\n")
-stringComparisonSolution()
+    # Convert the array to a JSON string
+    writeFile("../files/output.json", json.dumps(triples))
+
+    
+        
+#stringComparisonSolution()

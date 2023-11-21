@@ -1,0 +1,442 @@
+[
+  {
+    "fileName": "NewArticle.txt",
+    "sentences": [
+      {
+        "sentence": "The renowned academic, Dr. Emily Johnson, will be presenting her groundbreaking research at the upcoming academic conference in Paris next month.",
+        "startIndex": 0,
+        "endIndex": 128,
+        "entityMentions": [
+          {
+            "name": "Dr. Emily Johnson",
+            "startIndex": 26,
+            "endIndex": 42,
+            "expectedType": "Academic"
+          },
+          {
+            "name": "academic conference",
+            "startIndex": 76,
+            "endIndex": 95,
+            "expectedType": "AcademicConference"
+          },
+          {
+            "name": "Paris",
+            "startIndex": 96,
+            "endIndex": 101,
+            "expectedType": "Place"
+          },
+          {
+            "name": "next month",
+            "startIndex": 102,
+            "endIndex": 113,
+            "expectedType": "Time"
+          }
+        ]
+      },
+      {
+        "sentence": "The famous actor, James Anderson, is currently filming a thrilling scene aboard the latest aircraft in the action movie 'Live Soft'.",
+        "startIndex": 129,
+        "endIndex": 262,
+        "entityMentions": [
+          {
+            "name": "James Anderson",
+            "startIndex": 22,
+            "endIndex": 37,
+            "expectedType": "Actor"
+          },
+          {
+            "name": "aircraft",
+            "startIndex": 96,
+            "endIndex": 103,
+            "expectedType": "Aircraft"
+          },
+          {
+            "name": "action movie",
+            "startIndex": 158,
+            "endIndex": 169,
+            "expectedType": "MovieGenre"
+          },
+          {
+            "name": "Live Soft",
+            "startIndex": 171,
+            "endIndex": 179,
+            "expectedType": "Film"
+          }
+        ]
+      },
+      {
+        "sentence": "The new Album by the indie band 'The Echoes' has topped the charts, receiving widespread acclaim from music enthusiasts.",
+        "startIndex": 263,
+        "endIndex": 372,
+        "entityMentions": [
+          {
+            "name": "The Echoes",
+            "startIndex": 31,
+            "endIndex": 42,
+            "expectedType": "Band"
+          },
+          {
+            "name": "Album",
+            "startIndex": 66,
+            "endIndex": 71,
+            "expectedType": "Album"
+          }
+        ]
+      },
+      {
+        "sentence": "A team of researchers is working on a revolutionary academic project that aims to explore the mysteries of outer space.",
+        "startIndex": 373,
+        "endIndex": 482,
+        "entityMentions": [
+          {
+            "name": "academic project",
+            "startIndex": 63,
+            "endIndex": 78,
+            "expectedType": "ResearchProject"
+          },
+          {
+            "name": "outer space",
+            "startIndex": 133,
+            "endIndex": 144,
+            "expectedType": "Place"
+          }
+        ]
+      }
+    ]
+  },
+   {
+     "fileName": "NewArticle5.txt",
+     "sentences": [
+       {
+         "sentence": "In the realm of computing, scientists are developing a groundbreaking algorithm designed to revolutionize artificial intelligence.",
+         "startIndex": 0,
+         "endIndex": 108,
+         "entityMentions": [
+           {
+             "name": "scientists",
+             "startIndex": 30,
+             "endIndex": 39,
+             "expectedType": "Person"
+           },
+           {
+             "name": "groundbreaking algorithm",
+             "startIndex": 62,
+             "endIndex": 87,
+             "expectedType": "Algorithm"
+           },
+           {
+             "name": "artificial intelligence",
+             "startIndex": 94,
+             "endIndex": 115,
+             "expectedType": "FieldOfStudy"
+           }
+         ]
+       },
+       {
+         "sentence": "Biologists recently discovered a new species of amphibian in the dense rainforests of Central America.",
+         "startIndex": 109,
+         "endIndex": 213,
+         "entityMentions": [
+           {
+             "name": "Biologists",
+             "startIndex": 0,
+             "endIndex": 10,
+             "expectedType": "Person"
+           },
+           {
+             "name": "new species of amphibian",
+             "startIndex": 41,
+             "endIndex": 69,
+             "expectedType": "Amphibian"
+           },
+           {
+             "name": "dense rainforests of Central America",
+             "startIndex": 73,
+             "endIndex": 108,
+             "expectedType": "Place"
+           }
+         ]
+       },
+       {
+         "sentence": "The acclaimed architect, Maria Rodriguez, unveiled her latest masterpiece, a sustainable skyscraper in the heart of the city.",
+         "startIndex": 214,
+         "endIndex": 359,
+         "entityMentions": [
+           {
+             "name": "Maria Rodriguez",
+             "startIndex": 20,
+             "endIndex": 35,
+             "expectedType": "Architect"
+           },
+           {
+             "name": "latest masterpiece",
+             "startIndex": 49,
+             "endIndex": 67,
+             "expectedType": "WorkOfArt"
+           },
+           {
+             "name": "sustainable skyscraper",
+             "startIndex": 69,
+             "endIndex": 92,
+             "expectedType": "Building"
+           },
+           {
+             "name": "heart of the city",
+             "startIndex": 96,
+             "endIndex": 113,
+             "expectedType": "Place"
+           }
+         ]
+       },
+       {
+         "sentence": "Historians uncovered a treasure trove of historical documents in the ancient archive of Alexandria.",
+         "startIndex": 360,
+         "endIndex": 488,
+         "entityMentions": [
+           {
+             "name": "Historians",
+             "startIndex": 0,
+             "endIndex": 9,
+             "expectedType": "Person"
+           },
+           {
+             "name": "treasure trove of historical documents",
+             "startIndex": 26,
+             "endIndex": 64,
+             "expectedType": "Archive"
+           },
+           {
+             "name": "ancient archive of Alexandria",
+             "startIndex": 68,
+             "endIndex": 97,
+             "expectedType": "Place"
+           }
+         ]
+       },
+       {
+         "sentence": "Urban planners are collaborating on a project to transform an underutilized area into a vibrant cultural hub.",
+         "startIndex": 489,
+         "endIndex": 621,
+         "entityMentions": [
+           {
+             "name": "Urban planners",
+             "startIndex": 0,
+             "endIndex": 14,
+             "expectedType": "Person"
+           },
+           {
+             "name": "project",
+             "startIndex": 34,
+             "endIndex": 41,
+             "expectedType": "Project"
+           },
+           {
+             "name": "underutilized area",
+             "startIndex": 45,
+             "endIndex": 62,
+             "expectedType": "Area"
+           },
+           {
+             "name": "vibrant cultural hub",
+             "startIndex": 66,
+             "endIndex": 87,
+             "expectedType": "Place"
+           }
+         ]
+       }
+     ]
+   },
+   {
+     "fileName": "NewArticle6.txt",
+     "sentences": [
+       {
+         "sentence": "The renowned artist, Elena Martinez, is preparing for her upcoming gallery exhibition featuring a collection of abstract paintings.",
+         "startIndex": 0,
+         "endIndex": 120,
+         "entityMentions": [
+           {
+             "name": "Elena Martinez",
+             "startIndex": 21,
+             "endIndex": 35,
+             "expectedType": "Artist"
+           },
+           {
+             "name": "upcoming gallery exhibition",
+             "startIndex": 39,
+             "endIndex": 68,
+             "expectedType": "Event"
+           },
+           {
+             "name": "collection of abstract paintings",
+             "startIndex": 80,
+             "endIndex": 112,
+             "expectedType": "Artwork"
+           }
+         ]
+       },
+   {
+      "examples": [
+        {
+          "fileName": "AlgorithmDescription.txt",
+          "sentences": [
+            {
+              "sentence": "The algorithm efficiently sorts large datasets using a divide-and-conquer approach.",
+              "startIndex": 0,
+              "endIndex": 83,
+              "entityMentions": [
+                {
+                  "name": "algorithm",
+                  "startIndex": 4,
+                  "endIndex": 12,
+                  "expectedType": "Algorithm"
+                },
+                {
+                  "name": "efficiently sorts large datasets",
+                  "startIndex": 13,
+                  "endIndex": 47,
+                  "expectedType": "Activity"
+                },
+                {
+                  "name": "divide-and-conquer approach",
+                  "startIndex": 52,
+                  "endIndex": 82,
+                  "expectedType": "Method"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fileName": "AmphibianResearch.txt",
+          "sentences": [
+            {
+              "sentence": "Scientists are conducting extensive research on a rare amphibian species found in the Amazon rainforest.",
+              "startIndex": 0,
+              "endIndex": 108,
+              "entityMentions": [
+                {
+                  "name": "Scientists",
+                  "startIndex": 0,
+                  "endIndex": 9,
+                  "expectedType": "Person"
+                },
+                {
+                  "name": "extensive research",
+                  "startIndex": 17,
+                  "endIndex": 34,
+                  "expectedType": "Activity"
+                },
+                {
+                  "name": "rare amphibian species",
+                  "startIndex": 37,
+                  "endIndex": 61,
+                  "expectedType": "Amphibian"
+                },
+                {
+                  "name": "Amazon rainforest",
+                  "startIndex": 65,
+                  "endIndex": 107,
+                  "expectedType": "Area"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fileName": "ArchitectMariaRodriguez.txt",
+          "sentences": [
+            {
+              "sentence": "Maria Rodriguez, an accomplished architect, unveiled her latest design for a sustainable urban housing project.",
+              "startIndex": 0,
+              "endIndex": 107,
+              "entityMentions": [
+                {
+                  "name": "Maria Rodriguez",
+                  "startIndex": 0,
+                  "endIndex": 15,
+                  "expectedType": "Person"
+                },
+                {
+                  "name": "accomplished architect",
+                  "startIndex": 17,
+                  "endIndex": 37,
+                  "expectedType": "Architect"
+                },
+                {
+                  "name": "latest design",
+                  "startIndex": 42,
+                  "endIndex": 55,
+                  "expectedType": "Design"
+                },
+                {
+                  "name": "sustainable urban housing project",
+                  "startIndex": 59,
+                  "endIndex": 106,
+                  "expectedType": "Project"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fileName": "ArchiveDocuments.txt",
+          "sentences": [
+            {
+              "sentence": "The archive contains historical documents dating back to the 18th century.",
+              "startIndex": 0,
+              "endIndex": 78,
+              "entityMentions": [
+                {
+                  "name": "archive",
+                  "startIndex": 4,
+                  "endIndex": 11,
+                  "expectedType": "Archive"
+                },
+                {
+                  "name": "historical documents",
+                  "startIndex": 20,
+                  "endIndex": 40,
+                  "expectedType": "Document"
+                },
+                {
+                  "name": "dating back to the 18th century",
+                  "startIndex": 47,
+                  "endIndex": 77,
+                  "expectedType": "TimePeriod"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fileName": "AIArticle.txt",
+          "sentences": [
+            {
+              "sentence": "Artificial intelligence systems, designed by leading scientists, are revolutionizing data analysis.",
+              "startIndex": 0,
+              "endIndex": 93,
+              "entityMentions": [
+                {
+                  "name": "Artificial intelligence systems",
+                  "startIndex": 0,
+                  "endIndex": 32,
+                  "expectedType": "System"
+                },
+                {
+                  "name": "leading scientists",
+                  "startIndex": 38,
+                  "endIndex": 56,
+                  "expectedType": "Person"
+                },
+                {
+                  "name": "revolutionizing data analysis",
+                  "startIndex": 60,
+                  "endIndex": 92,
+                  "expectedType": "Activity"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+       
