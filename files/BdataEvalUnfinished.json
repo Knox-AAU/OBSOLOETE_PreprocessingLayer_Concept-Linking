@@ -1,0 +1,315 @@
+{
+   "sentence": "In that process, I have learned that the public and private business worlds are two very different worlds.",
+   "startIndex": 702,
+   "endIndex": 808,
+   "entityMentions": [
+       {
+           "name": "two",
+           "startIndex": 80,
+           "endIndex": 83
+       }
+   ]
+},
+{
+   "sentence": "This also applies to the media attention, which is massive for public buildings, he writes on LinkedIn.\n\nRegion North Jutland received an injunction for the psychological working environment, where employees criticized Martin Kjær for, among other things, overcommitment, and the director himself acknowledged that several of his employees break down crying on the job.\n\n",
+   "startIndex": 809,
+   "endIndex": 1180,
+   "entityMentions": [
+       {
+           "name": "Region North Jutland",
+           "startIndex": 105,
+           "endIndex": 125
+       },
+       {
+           "name": "Martin Kjær",
+           "startIndex": 219,
+           "endIndex": 230
+       }
+   ]
+},
+{
+   "sentence": "Subsequently, he came under intense pressure internally after several highly sensational statements in North Jutland.\n\n",
+   "startIndex": 1180,
+   "endIndex": 1299,
+   "entityMentions": [
+       {
+           "name": "North Jutland",
+           "startIndex": 103,
+           "endIndex": 116
+       }
+   ]
+},
+{
+   "sentence": "Martin Kjær said, among other things, that the working environment could get even worse as more construction scandals came to light, and he started a public fight with the HR director in Region North Jutland, whom he accused of cutting him off from responding to the Norwegian Working Environment Authority.\n\n",
+   "startIndex": 1299,
+   "endIndex": 1608,
+   "entityMentions": [
+       {
+           "name": "Martin Kjær",
+           "startIndex": 0,
+           "endIndex": 11
+       },
+       {
+           "name": "Region North Jutland",
+           "startIndex": 187,
+           "endIndex": 207
+       },
+       {
+           "name": "the Norwegian Working Environment Authority",
+           "startIndex": 263,
+           "endIndex": 306
+       }
+   ]
+},
+{
+   "sentence": "Accusations that HR director Mariane Therkelsen has rejected.\n\n",
+   "startIndex": 1608,
+   "endIndex": 1671,
+   "entityMentions": [
+       {
+           "name": "Mariane Therkelsen",
+           "startIndex": 29,
+           "endIndex": 47
+       }
+   ]
+},
+{
+   "sentence": "But Martin Kjær believes he is a victim.",
+   "startIndex": 1671,
+   "endIndex": 1711,
+   "entityMentions": [
+       {
+           "name": "Martin Kjær",
+           "startIndex": 4,
+           "endIndex": 15
+       }
+   ]
+},
+{
+   "sentence": "A few days after Martin Kjær had conducted a major interview with Nordjyske in early September, he wrote in an email to his employees that he was \"deeply personally affected\" and that it was the \"most disgusting thing I have ever experienced\".\n\n- I don't remember several parts of the interview at all, he writes in the email, which Nordjyske has seen.\n\n",
+   "startIndex": 2094,
+   "endIndex": 2448,
+   "entityMentions": [
+       {
+           "name": "A few days",
+           "startIndex": 0,
+           "endIndex": 10
+       },
+       {
+           "name": "Martin Kjær",
+           "startIndex": 17,
+           "endIndex": 28
+       },
+       {
+           "name": "Nordjyske",
+           "startIndex": 66,
+           "endIndex": 75
+       },
+       {
+           "name": "early September",
+           "startIndex": 79,
+           "endIndex": 94
+       },
+       {
+           "name": "Nordjyske",
+           "startIndex": 333,
+           "endIndex": 342
+       }
+   ]
+},
+{
+   "sentence": "In the post on LinkedIn, he ends by denying that he is leaving a \"construction site in chaos\".\n\n- NAU (New Aalborg University Hospital, ed.) is in a good place today, and even though there are massive challenges, today there is a highly competent team of own/external resources.\n\n",
+   "startIndex": 2448,
+   "endIndex": 2728,
+   "entityMentions": [
+       {
+           "name": "LinkedIn",
+           "startIndex": 15,
+           "endIndex": 23
+       },
+       {
+           "name": "New Aalborg University Hospital",
+           "startIndex": 103,
+           "endIndex": 134
+       },
+       {
+           "name": "today",
+           "startIndex": 160,
+           "endIndex": 165
+       },
+       {
+           "name": "today",
+           "startIndex": 213,
+           "endIndex": 218
+       }
+   ]
+},
+{
+   "sentence": "That statement is in sharp contrast to Martin Kjær's statements in Nordjyske earlier this month.\n\n",
+   "startIndex": 2728,
+   "endIndex": 2826,
+   "entityMentions": [
+       {
+           "name": "Martin Kjær's",
+           "startIndex": 39,
+           "endIndex": 52
+       },
+       {
+           "name": "Nordjyske",
+           "startIndex": 67,
+           "endIndex": 76
+       },
+       {
+           "name": "earlier this month",
+           "startIndex": 77,
+           "endIndex": 95
+       }
+   ]
+},
+{
+   "sentence": "Here he said that he was considering moving employees away because \"there are some employees who do not fit into a turnaround of what is now the biggest construction scandal in Danish history\".\n\n",
+   "startIndex": 2826,
+   "endIndex": 3021,
+   "entityMentions": [
+       {
+           "name": "Danish",
+           "startIndex": 177,
+           "endIndex": 183
+       }
+   ]
+},
+{
+   "sentence": "Nordjyske has tried to get Martin Kjær to speak, but he has not responded to our inquiries.",
+   "startIndex": 3021,
+   "endIndex": 3112,
+   "entityMentions": [
+       {
+           "name": "Nordjyske",
+           "startIndex": 0,
+           "endIndex": 9
+       },
+       {
+           "name": "Martin Kjær",
+           "startIndex": 27,
+           "endIndex": 38
+       }
+   ]
+},
+{
+   "sentence": "It is still unknown whether Martin Kjær has already had his last day of work, or whether he will have to work during the notice period.\n\n",
+   "startIndex": 3113,
+   "endIndex": 3250,
+   "entityMentions": [
+       {
+           "name": "Martin Kjær",
+           "startIndex": 28,
+           "endIndex": 39
+       },
+       {
+           "name": "last day",
+           "startIndex": 60,
+           "endIndex": 68
+       }
+   ]
+},
+{
+   "sentence": "Nordjyske learns that on Thursday last week he told the employees at an urgently called meeting that he had resigned from his position.",
+   "startIndex": 3250,
+   "endIndex": 3385,
+   "entityMentions": [
+       {
+           "name": "Nordjyske",
+           "startIndex": 0,
+           "endIndex": 9
+       },
+       {
+           "name": "Thursday",
+           "startIndex": 25,
+           "endIndex": 33
+       },
+       {
+           "name": "last week",
+           "startIndex": 34,
+           "endIndex": 43
+       }
+   ]
+},
+{
+   "sentence": "According to Nordjyske's information, the termination comes after several meetings with acting CEO Kim Mikkelsen.\n\n",
+   "startIndex": 3474,
+   "endIndex": 3589,
+   "entityMentions": [
+       {
+           "name": "Nordjyske",
+           "startIndex": 13,
+           "endIndex": 22
+       },
+       {
+           "name": "Kim Mikkelsen",
+           "startIndex": 99,
+           "endIndex": 112
+       }
+   ]
+},
+{
+   "sentence": "Kim Mikkelsen has refused to answer questions - both verbally and in writing.\n",
+   "startIndex": 3589,
+   "endIndex": 3667,
+   "entityMentions": [
+       {
+           "name": "Kim Mikkelsen",
+           "startIndex": 0,
+           "endIndex": 13
+       }
+   ]
+},
+{
+   "sentence": "There hasn't been much positive news from the super hospital for a long time, but here is one:\n\nMoney has been found to build a patient and maternity hotel at New Aalborg University Hospital.",
+   "startIndex": 3667,
+   "endIndex": 3858,
+   "entityMentions": [
+       {
+           "name": "one",
+           "startIndex": 90,
+           "endIndex": 93
+       },
+       {
+           "name": "New Aalborg University Hospital",
+           "startIndex": 159,
+           "endIndex": 190
+       }
+   ]
+}
+,
+{
+   "sentence": "A total of DKK 120 million has been set aside over the next four years.\n\n- I am very happy that we have succeeded in finding a solution so that seriously ill patients admitted to the patient hotel and new parents do not have to transport themselves across the city when they need peace, closeness and professional help close at hand, says regional council chairman Mads Duedahl (V) in a press release.\n\n\n980 inhabitants of Bredebro near Tønder can soon look forward to receiving a letter from the municipality.",
+   "startIndex": 3859,
+   "endIndex": 4369,
+   "entityMentions": [
+       {
+           "name": "DKK 120 million",
+           "startIndex": 11,
+           "endIndex": 26
+       },
+       {
+           "name": "the next four years",
+           "startIndex": 51,
+           "endIndex": 70
+       },
+       {
+           "name": "Mads Duedahl",
+           "startIndex": 365,
+           "endIndex": 377
+       },
+       {
+           "name": "980",
+           "startIndex": 404,
+           "endIndex": 407
+       },
+       {
+           "name": "Bredebro near Tønder",
+           "startIndex": 423,
+           "endIndex": 443
+       }
+   ] 
+}
