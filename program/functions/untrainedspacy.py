@@ -66,35 +66,45 @@ def linkUnmatched():
     unmatched_labels = readFile("../documents/spacy_unmatched.txt").splitlines()
     ontology_classes = readFile("../documents/ontology_classes.txt").splitlines()
 
-    def matchLabel(label, path):
-        #tilføj owl link
-     
-            # tilføj ontology/
-            label_index = unmatched_labels.index(label)
-            labels_dict[unmatched_labels[label_index]] = ontology_classes[class_index]
-            unmatched_labels.remove(label)
-
+    def matchLabel(label):
+        label_index = unmatched_labels.index(label)
+        labels_dict[unmatched_labels[label_index]] = ontology_classes[class_index]
+        unmatched_labels.remove(label)
+        
     #Match label med link i steden for index
-
-    # matchLabel("date", 724) #TimePeriod
-    matchLabel("fac", 108) #Building
-    matchLabel("gpe", 183) #Country
-    matchLabel("loc", 518) #Place
+        label_mapping = {
+            "fac": "https://dbpedia.org/ontology/Building",
+            "gpe": "https://dbpedia.org/ontology/Country",
+            "loc": "https://dbpedia.org/ontology/Location",
+            "norp": "https://dbpedia.org/ontology/Group",
+            "org": "https://dbpedia.org/ontology/Organisation",
+            "product": "https://www.w3.org/2002/07/owl#/thing",
+            "work_of_art": "https://dbpedia.org/ontology/Artwork"
+    
+        }
+        return label_mapping.get(label, None)
+       
+    '''
+    # matchLabel("date", ) #TimePeriod
+    matchLabel("fac") #Building
+    matchLabel("gpe") #Country
+    matchLabel("loc") #Place
     # matchLabel('money', 120)
-    matchLabel("norp", 309) #Group
+    matchLabel("norp") #Group
     # matchLabel('ordinal', )
-    matchLabel("org", 496) #Organisation
+    matchLabel("org") #Organisation
     # matchLabel('percent', )
-    matchLabel('product', NULL, "https://www.w3.org/2002/07/owl#/thing") #Thing i owl
+    matchLabel('product') #Thing i owl
     # matchLabel('quantity', )
     # matchLabel('time', )
-    matchLabel("work_of_art", 49) #Artwork
-
-
+    matchLabel("work_of_art", label_to_link["work_of_art"]) #Artwork
+    '''
     return labels_dict
 
 
-def createMagicUnfinished(labelsDict, JSONobject):
+
+'''
+def generateTriplesFromJSON(labelsDict, JSONobject):
 
     jsonFilePath = "../files/test.JSON"
 
@@ -109,16 +119,16 @@ def createMagicUnfinished(labelsDict, JSONobject):
         for sentence in obj['sentences']:
             sent = nlp(sentence['sentence'])
             ems = sentence['entityMentions']
-            
+
             #translate from detected language to English
             if language != "en":
                 translated_sentence = translateWordToEn(sentence['sentence'], language)
                 sent = nlp(translated_sentence)
 
             for ent in sent.ents:
+                dbpedia_uri = linkUnmatched()
                 for em in ems:
-                    print('ent.label_: ', ent.label_)
-
+            
                     # her tjekker du ontology.ttl om ent.label_ er owl:dataypeproperty eller owl:class
 
                     # if owl:class
@@ -128,10 +138,41 @@ def createMagicUnfinished(labelsDict, JSONobject):
                     # triple = (em['iri'], "rdfs:type/is_a", dbpedia_path + labelsDict.get(ent.label_.lower(), ent.label_))
 
                     #hvis der ik er noget fra vores ontology, så skal der ik laves en triple
+                    #triple = (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", labelsDict.get(ent.label_.lower(), ent.label_))
 
-                    triple = (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", labelsDict.get(ent.label_.lower(), ent.label_))
-
-                    triples.append(triple)
+                    if dbpedia_uri:
+                        triple = (ent.text, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)
+                        triples.append(triple)
                       
     return triples
+'''
+
+def generateTriplesFromJSONTEST(labelsDict, JSONobject):
+    jsonFilePath = "../files/test.JSON"
+    triples = []
+
+    with open(jsonFilePath, "r") as jsonFile:
+        data = json.load(jsonFile)
+
+    for obj in JSONobject:
+        language = obj["language"]
+
+        for sentence in obj['sentences']:
+            sent = nlp(sentence['sentence'])
+            ems = sentence['entityMentions']
+
+            # Translate from detected language to English
+            if language != "en":
+                translated_sentence = translateWordToEn(sentence['sentence'], language)
+                sent = nlp(translated_sentence)
+
+            for ent in sent.ents:
+                # Use the matchLabel function to get the DBpedia link for the label
+                dbpedia_uri = linkUnmatched(ent.label_)
+                if dbpedia_uri:
+                    triple = (ent.text, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)
+                    triples.append(triple)
+
+    return triples
+
 
