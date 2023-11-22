@@ -168,7 +168,7 @@ def generateTriplesFromJSONTEST(labelsDict, JSONobject):
 
             for ent in sent.ents:
                 # Use the matchLabel function to get the DBpedia link for the label
-                dbpedia_uri = linkUnmatched(ent.label_)
+                dbpedia_uri = linkUnmatched()
                 if dbpedia_uri:
                     triple = (ent.text, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)
                     triples.append(triple)
