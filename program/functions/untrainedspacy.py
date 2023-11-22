@@ -66,25 +66,30 @@ def linkUnmatched():
     unmatched_labels = readFile("../documents/spacy_unmatched.txt").splitlines()
     ontology_classes = readFile("../documents/ontology_classes.txt").splitlines()
 
-    def matchLabel(label, class_index):
-        label_index = unmatched_labels.index(label)
-        labels_dict[unmatched_labels[label_index]] = ontology_classes[class_index]
-        unmatched_labels.remove(label)
+    def matchLabel(label, path):
+        #tilføj owl link
+     
+            # tilføj ontology/
+            label_index = unmatched_labels.index(label)
+            labels_dict[unmatched_labels[label_index]] = ontology_classes[class_index]
+            unmatched_labels.remove(label)
 
-    matchLabel("date", 724)
-    matchLabel("fac", 108)
-    matchLabel("gpe", 183)
-    matchLabel("loc", 518)
+    #Match label med link i steden for index
+
+    # matchLabel("date", 724) #TimePeriod
+    matchLabel("fac", 108) #Building
+    matchLabel("gpe", 183) #Country
+    matchLabel("loc", 518) #Place
     # matchLabel('money', 120)
-    matchLabel("norp", 309)
+    matchLabel("norp", 309) #Group
     # matchLabel('ordinal', )
-    matchLabel("org", 496)
+    matchLabel("org", 496) #Organisation
     # matchLabel('percent', )
-    # matchLabel('product', )
+    matchLabel('product', NULL, "https://www.w3.org/2002/07/owl#/thing") #Thing i owl
     # matchLabel('quantity', )
     # matchLabel('time', )
-    matchLabel("work_of_art", 49)
-    # print(unmatched_labels)
+    matchLabel("work_of_art", 49) #Artwork
+
 
     return labels_dict
 
@@ -122,7 +127,9 @@ def createMagicUnfinished(labelsDict, JSONobject):
                     # dbpedia_path = "http://dbpedia.org/datatype/"
                     # triple = (em['iri'], "rdfs:type/is_a", dbpedia_path + labelsDict.get(ent.label_.lower(), ent.label_))
 
-                    triple = (em['iri'], "rdfs:type/is_a", "http://dbpedia.org/ontology/" + labelsDict.get(ent.label_.lower(), ent.label_))
+                    #hvis der ik er noget fra vores ontology, så skal der ik laves en triple
+
+                    triple = (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", labelsDict.get(ent.label_.lower(), ent.label_))
 
                     triples.append(triple)
                       
