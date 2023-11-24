@@ -1,0 +1,250 @@
+[
+    {
+        "fileName": "Artikel_DK.txt",
+        "language": "da",
+        "sentences": [
+            {
+                "sentence": "Nordjyske erhvervsliv oplever stigende eftersp\u00c3\u00b8rgsel efter b\u00c3\u00a6redygtige energil\u00c3\u00b8sninger.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 90,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 0,
+                        "endIndex": 9,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    },
+                    {
+                        "name": "energil\u00c3\u00b8sninger",
+                        "type": "Entity",
+                        "label": "PER",
+                        "startIndex": 73,
+                        "endIndex": 89,
+                        "iri": "knox-kb01.srv.aau.dk/energil\u00c3\u00b8sninger"
+                    }
+                ]
+            },
+            {
+                "sentence": "En ny unders\u00c3\u00b8gelse konkluderer, at klimaforandringerne har en direkte indvirkning p\u00c3\u00a5 forskellige danske dyrearter.",
+                "sentenceStartIndex": 92,
+                "sentenceEndIndex": 210,
+                "entityMentions": [
+                    {
+                        "name": "danske",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 191,
+                        "endIndex": 197,
+                        "iri": "knox-kb01.srv.aau.dk/danske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Kunstnere fra hele landet deltager i \u00c3\u00a5rets kulturfestival i Aalborg.",
+                "sentenceStartIndex": 299,
+                "sentenceEndIndex": 370,
+                "entityMentions": [
+                    {
+                        "name": "Aalborg",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 362,
+                        "endIndex": 369,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborg"
+                    }
+                ]
+            },
+            {
+                "sentence": "\u00c3\u02dcget kriminalitet i de nordjyske forst\u00c3\u00a6",
+                "sentenceStartIndex": 372,
+                "sentenceEndIndex": 413,
+                "entityMentions": [
+                    {
+                        "name": "nordjyske",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 396,
+                        "endIndex": 405,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Sundhedsmyndighederne iv\u00c3\u00a6rks\u00c3\u00a6tter nye tiltag for at indd\u00c3\u00a6mme smittespredningen i regionens skoler.",
+                "sentenceStartIndex": 470,
+                "sentenceEndIndex": 571,
+                "entityMentions": [
+                    {
+                        "name": "indd\u00c3",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 524,
+                        "endIndex": 529,
+                        "iri": "knox-kb01.srv.aau.dk/indd\u00c3"
+                    }
+                ]
+            },
+            {
+                "sentence": "Ny teknologi revolutionerer produktionsmetoderne inden for f\u00c3\u00b8devareindustrien.",
+                "sentenceStartIndex": 573,
+                "sentenceEndIndex": 654,
+                "entityMentions": [
+                    {
+                        "name": "f\u00c3\u00b8devareindustrien",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 632,
+                        "endIndex": 651,
+                        "iri": "knox-kb01.srv.aau.dk/f\u00c3\u00b8devareindustrien"
+                    }
+                ]
+            },
+            {
+                "sentence": "\u00c3\u2026rets sportsprisuddeling hylder lokale sportsstjerner for deres pr\u00c3\u00a6stationer.",
+                "sentenceStartIndex": 654,
+                "sentenceEndIndex": 733,
+                "entityMentions": [
+                    {
+                        "name": "\u00c3",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 654,
+                        "endIndex": 655,
+                        "iri": "knox-kb01.srv.aau.dk/\u00c3"
+                    }
+                ]
+            },
+            {
+                "sentence": "Byr\u00c3\u00a5det godkender ambiti\u00c3\u00b8se planer for b\u00c3\u00a6redygtig byudvikling i Aalborgs centrum.",
+                "sentenceStartIndex": 735,
+                "sentenceEndIndex": 819,
+                "entityMentions": [
+                    {
+                        "name": "Byr\u00c3\u00a5det",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 735,
+                        "endIndex": 743,
+                        "iri": "knox-kb01.srv.aau.dk/Byr\u00c3\u00a5det"
+                    },
+                    {
+                        "name": "Aalborgs",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 802,
+                        "endIndex": 810,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborgs"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nordjyske kommuner investerer i gr\u00c3\u00b8nne initiativer for at nedbringe CO2-udledningen.",
+                "sentenceStartIndex": 900,
+                "sentenceEndIndex": 985,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 900,
+                        "endIndex": 909,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nye statistikker viser en markant stigning i antallet af turister, der bes\u00c3\u00b8ger det nordlige Danmark.",
+                "sentenceStartIndex": 1078,
+                "sentenceEndIndex": 1181,
+                "entityMentions": [
+                    {
+                        "name": "Danmark",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1171,
+                        "endIndex": 1178,
+                        "iri": "knox-kb01.srv.aau.dk/Danmark"
+                    }
+                ]
+            },
+            {
+                "sentence": "Danmarks st\u00c3\u00b8rste teknologimesse tiltr\u00c3\u00a6kker innovat\u00c3\u00b8rer og virksomheder fra hele verden.",
+                "sentenceStartIndex": 1257,
+                "sentenceEndIndex": 1347,
+                "entityMentions": [
+                    {
+                        "name": "Danmarks",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1257,
+                        "endIndex": 1265,
+                        "iri": "knox-kb01.srv.aau.dk/Danmarks"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nordjyske erhvervsliv oplever en b\u00c3\u00b8lge af opstartsvirksomheder og innovation.",
+                "sentenceStartIndex": 1349,
+                "sentenceEndIndex": 1429,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1349,
+                        "endIndex": 1358,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Landm\u00c3\u00a6nd i regionen k\u00c3\u00a6mper med udfordringer som t\u00c3\u00b8rke og \u00c3\u00a6ndringer i landbruget.",
+                "sentenceStartIndex": 1429,
+                "sentenceEndIndex": 1515,
+                "entityMentions": [
+                    {
+                        "name": "k\u00c3",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1450,
+                        "endIndex": 1452,
+                        "iri": "knox-kb01.srv.aau.dk/k\u00c3"
+                    },
+                    {
+                        "name": "t\u00c3\u00b8rke",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 1479,
+                        "endIndex": 1485,
+                        "iri": "knox-kb01.srv.aau.dk/t\u00c3\u00b8rke"
+                    },
+                    {
+                        "name": "\u00c3",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1489,
+                        "endIndex": 1490,
+                        "iri": "knox-kb01.srv.aau.dk/\u00c3"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nordjyske restauranter rangeres h\u00c3\u00b8jt i en gastronomisk guide, der vurderer landets bedste",
+                "sentenceStartIndex": 1779,
+                "sentenceEndIndex": 1872,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1781,
+                        "endIndex": 1790,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            }
+        ]
+    }
+]
