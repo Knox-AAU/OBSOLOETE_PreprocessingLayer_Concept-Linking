@@ -106,14 +106,14 @@ def generateTriples(JSONObject, classesDict):
             matchingWords = [] #words der findes i ontologyen
             SIMILARITY_REQ = 0.9 #minimumkrav til string similarity.
 
-            if language is ontologyLanguage:
+            if language == ontologyLanguage:
                 matchingWords = findEnMatches(words, classesDict, SIMILARITY_REQ)
             else:
                 matchingWords = findNonEnMatches(words, classesDict, SIMILARITY_REQ, language)
  
             for word in matchingWords:
                 for em in filtered_ems:
-                    triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
+                    triples.append({sent: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className'])})
     return triples
 
 # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
