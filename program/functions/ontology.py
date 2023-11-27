@@ -88,7 +88,8 @@ def generateTriples(JSONObject, classesDict):
         ontologyLanguage = "en"
         for sentence in object['sentences']:
             sent = sentence['sentence']
-            ems = sentence['entityMentions']
+            ems = sentence['entityMentions'] 
+            filtered_ems = [em for em in sentence.get('entityMentions', []) if em.get('type') == 'Entity']
             new_sent = sent
 
             ems_indices = []
@@ -111,7 +112,7 @@ def generateTriples(JSONObject, classesDict):
                 matchingWords = findNonEnMatches(words, classesDict, SIMILARITY_REQ, language)
  
             for word in matchingWords:
-                for em in ems:
+                for em in filtered_ems:
                     triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
     return triples
 
@@ -119,11 +120,11 @@ def generateTriples(JSONObject, classesDict):
 def findEnMatches(words, classesDict, SIMILARITY_REQ):
     matchingWords = []
     for word in words:
-                for className, labelsList in classesDict.items():
-                    for label_dict in labelsList:
-                        if 'en' in label_dict and similar(word.lower(), label_dict['en'].lower()) >= SIMILARITY_REQ:
-                            matchingWords.append({'className': className, 'label': word})
-                            break
+        for className, labelsList in classesDict.items():
+            for label_dict in labelsList:
+                if 'en' in label_dict and similar(word.lower(), label_dict['en'].lower()) >= SIMILARITY_REQ:
+                    matchingWords.append({'className': className, 'label': word})
+                    break
     return matchingWords
 
 # Samme som findEnMatches, men tjekker efter et label match på originalsproget. Hvis der ikke findes et label på sproget, så oversætter vi og leder efter et passende engelsk label.
