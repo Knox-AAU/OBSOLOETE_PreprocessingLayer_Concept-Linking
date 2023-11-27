@@ -1,5 +1,0 @@
-cardinal
-event
-language
-law
-person
