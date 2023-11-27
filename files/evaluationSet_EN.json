@@ -4,7 +4,7 @@
     "language": "en",
     "sentences": [
       {
-        "sentence": "Since the sudden exit of the controversial CEO Martin KjÃ¦r last week, both he and the executive board in Region North Jutland have been in hiding.",
+        "sentence": "Since the sudden exit of the controversial CEO Martin Kjær last week, both he and the executive board in Region North Jutland have been in hiding.",
         "sentenceStartIndex": 0,
         "sentenceEndIndex": 149,
         "entityMentions": [
@@ -17,12 +17,12 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 47,
             "endIndex": 57,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           },
           {
             "name": "Region North Jutland",
@@ -35,7 +35,7 @@
         ]
       },
       {
-        "sentence": "Martin KjÃ¦r does not say directly why he has resigned from his position, but he writes that he has not regretted taking the job just a year and a half ago.",
+        "sentence": "Martin Kjær does not say directly why he has resigned from his position, but he writes that he has not regretted taking the job just a year and a half ago.",
         "sentenceStartIndex": 362,
         "sentenceEndIndex": 520,
         "entityMentions": [
@@ -48,17 +48,17 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 362,
             "endIndex": 372,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           }
         ]
       },
       {
-        "sentence": "According to Martin KjÃ¦r, it has been \"surreal\" to see himself in the media, after the Norwegian Working Environment Authority took action against the department he headed in July.-",
+        "sentence": "According to Martin Kjær, it has been \"surreal\" to see himself in the media, after the Norwegian Working Environment Authority took action against the department he headed in July.-",
         "sentenceStartIndex": 520,
         "sentenceEndIndex": 704,
         "entityMentions": [
@@ -71,12 +71,12 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 533,
             "endIndex": 543,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           },
           {
             "name": "the Norwegian Working Environment Authority",
@@ -104,7 +104,7 @@
         ]
       },
       {
-        "sentence": "A few days after Martin KjÃ¦r had conducted a major interview with Nordjyske in early September, he wrote in an email to his employees that he was \"deeply personally affected\" and that it was the \"most disgusting thing I have ever experienced\".- I don't remember several parts of the interview at all, he writes in the email, which Nordjyske has seen.",
+        "sentence": "A few days after Martin Kjær had conducted a major interview with Nordjyske in early September, he wrote in an email to his employees that he was \"deeply personally affected\" and that it was the \"most disgusting thing I have ever experienced\".- I don't remember several parts of the interview at all, he writes in the email, which Nordjyske has seen.",
         "sentenceStartIndex": 2100,
         "sentenceEndIndex": 2455,
         "entityMentions": [
@@ -125,12 +125,12 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 2117,
             "endIndex": 2127,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           },
           {
             "name": "Nordjyske",
@@ -190,7 +190,7 @@
         ]
       },
       {
-        "sentence": "That statement is in sharp contrast to Martin KjÃ¦r's statements in Nordjyske earlier this month.",
+        "sentence": "That statement is in sharp contrast to Martin Kjær's statements in Nordjyske earlier this month.",
         "sentenceStartIndex": 2735,
         "sentenceEndIndex": 2834,
         "entityMentions": [
@@ -203,12 +203,12 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 2774,
             "endIndex": 2784,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           },
           {
             "name": "Nordjyske",
@@ -221,7 +221,7 @@
         ]
       },
       {
-        "sentence": "It is still unknown whether Martin KjÃ¦r has already had his last day of work, or whether he will have to work during the notice period.",
+        "sentence": "It is still unknown whether Martin Kjær has already had his last day of work, or whether he will have to work during the notice period.",
         "sentenceStartIndex": 3122,
         "sentenceEndIndex": 3260,
         "entityMentions": [
@@ -234,12 +234,12 @@
             "iri": null
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 3150,
             "endIndex": 3160,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           }
         ]
       },
@@ -275,7 +275,7 @@
         ]
       },
       {
-        "sentence": "There hasn't been much positive news from the super hospital for a long time, but here is one:Money has been found to build a patient and maternity hotel at New Aalborg University Hospital.",
+        "sentence": "There hasn't been much positive news from the super hospital for a long time, but here is one: Money has been found to build a patient and maternity hotel at New Aalborg University Hospital.",
         "sentenceStartIndex": 3677,
         "sentenceEndIndex": 3868,
         "entityMentions": [
@@ -298,7 +298,7 @@
         ]
       },
       {
-        "sentence": "A total of DKK 120 million has been set aside over the next four years.- I am very happy that we have succeeded in finding a solution so that seriously ill patients admitted to the patient hotel and new parents do not have to transport themselves across the city when they need peace, closeness and professional help close at hand, says regional council chairman Mads Duedahl (V) in a press release.980 inhabitants of Bredebro near TÃ¸nder can soon look forward to receiving a letter from the municipality.",
+        "sentence": "A total of DKK 120 million has been set aside over the next four years.- I am very happy that we have succeeded in finding a solution so that seriously ill patients admitted to the patient hotel and new parents do not have to transport themselves across the city when they need peace, closeness and professional help close at hand, says regional council chairman Mads Duedahl (V) in a press release.980 inhabitants of Bredebro near Tønder can soon look forward to receiving a letter from the municipality.",
         "sentenceStartIndex": 3869,
         "sentenceEndIndex": 4380,
         "entityMentions": [
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "sentence": "This also applies to the media attention, which is massive for public buildings, he writes on LinkedIn.Region North Jutland received an injunction for the psychological working environment, where employees criticized Martin KjÃ¦r for, among other things, overcommitment, and the director himself acknowledged that several of his employees break down crying on the job.",
+        "sentence": "This also applies to the media attention, which is massive for public buildings, he writes on LinkedIn.Region North Jutland received an injunction for the psychological working environment, where employees criticized Martin Kjærr for, among other things, overcommitment, and the director himself acknowledged that several of his employees break down crying on the job.",
         "sentenceStartIndex": 812,
         "sentenceEndIndex": 1184,
         "entityMentions": [
@@ -373,12 +373,12 @@
             "iri": "knox-kb01.srv.aau.dk/Region_North_Jutland"
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 1031,
             "endIndex": 1041,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           }
         ]
       },
@@ -398,17 +398,17 @@
         ]
       },
       {
-        "sentence": "Martin KjÃ¦r said, among other things, that the working environment could get even worse as more construction scandals came to light, and he started a public fight with the HR director in Region North Jutland, whom he accused of cutting him off from responding to the Norwegian Working Environment Authority.",
+        "sentence": "Martin Kjær said, among other things, that the working environment could get even worse as more construction scandals came to light, and he started a public fight with the HR director in Region North Jutland, whom he accused of cutting him off from responding to the Norwegian Working Environment Authority.",
         "sentenceStartIndex": 1303,
         "sentenceEndIndex": 1613,
         "entityMentions": [
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 1303,
             "endIndex": 1313,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           },
           {
             "name": "Region North Jutland",
@@ -444,17 +444,17 @@
         ]
       },
       {
-        "sentence": "But Martin KjÃ¦r believes he is a victim.",
+        "sentence": "But Martin Kjær believes he is a victim.",
         "sentenceStartIndex": 1676,
         "sentenceEndIndex": 1717,
         "entityMentions": [
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 1680,
             "endIndex": 1690,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           }
         ]
       },
@@ -474,7 +474,7 @@
         ]
       },
       {
-        "sentence": "Nordjyske has tried to get Martin KjÃ¦r to speak, but he has not responded to our inquiries.",
+        "sentence": "Nordjyske has tried to get Martin Kjær to speak, but he has not responded to our inquiries.",
         "sentenceStartIndex": 3029,
         "sentenceEndIndex": 3121,
         "entityMentions": [
@@ -487,12 +487,12 @@
             "iri": "knox-kb01.srv.aau.dk/Nordjyske"
           },
           {
-            "name": "Martin KjÃ",
+            "name": "Martin Kjær",
             "type": "Entity",
             "label": "PERSON",
             "startIndex": 3056,
             "endIndex": 3066,
-            "iri": "knox-kb01.srv.aau.dk/Martin_KjÃ"
+            "iri": "knox-kb01.srv.aau.dk/Martin_Kjær"
           }
         ]
       },
