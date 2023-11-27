@@ -1,0 +1,80 @@
+[
+    {
+        "filename": "path/to/Book.txt",
+        "language": "en",
+        "sentences": [
+            {
+                "sentence": "Elon Musk founded SpaceX and Tesla.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 39,
+                "entityMentions": [
+                    { "name": "Elon Musk", "startIndex": 0, "endIndex": 9, "iri": "example-kb/spaceX-Tesla/Elon_Musk", "type": "Person" },
+                    { "name": "SpaceX", "startIndex": 18, "endIndex": 23, "iri": "example-kb/spaceX-Tesla/SpaceX", "type": "Organization"},
+                    { "name": "Tesla", "startIndex": 28, "endIndex": 33, "iri": "example-kb/spaceX-Tesla/Tesla", "type": "Car"}
+                ]
+            }
+        ]
+    },
+    {
+        "filename": "path/to/Article.txt",
+        "language": "en",
+        "sentences": [
+            {
+                "sentence": "Marie Curie won Nobel Prizes in Physics and Chemistry.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 53,
+                "entityMentions": [
+                    { "name": "Marie Curie", "startIndex": 0, "endIndex": 10, "iri": "example-kb/Nobel/Marie_Curie", "type": "Person" },
+                    { "name": "Nobel Prizes", "startIndex": 15, "endIndex": 26, "iri": "example-kb/Nobel/Nobel_Prizes", "type": "Award" },
+                    { "name": "Physics", "startIndex": 30, "endIndex": 37, "iri": "example-kb/Nobel/Physics", "type": "Field" },
+                    { "name": "Chemistry", "startIndex": 42, "endIndex": 50, "iri": "example-kb/Nobel/Chemistry", "type": "Field" }
+                ]
+            }
+        ]
+    },
+    {
+        "filename": "path/to/Story.txt",
+        "language": "en",
+        "sentences": [
+            {
+                "sentence": "Leonardo da Vinci painted the Mona Lisa.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 35,
+                "entityMentions": [
+                    { "name": "Leonardo da Vinci", "startIndex": 0, "endIndex": 16, "iri": "example-kb/Artists/Leonardo_da_Vinci", "type": "Person" },
+                    { "name": "Mona Lisa", "startIndex": 23, "endIndex": 31, "iri": "example-kb/Artists/Mona_Lisa", "type": "Artwork" }
+                ]
+            }
+        ]
+    },
+    {
+        "filename": "path/to/Document.txt",
+        "language": "en",
+        "sentences": [
+            {
+                "sentence": "Albert Einstein developed the theory of relativity.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 46,
+                "entityMentions": [
+                    { "name": "Albert Einstein", "startIndex": 0, "endIndex": 15, "iri": "example-kb/Scientists/Albert_Einstein", "type": "Person" },
+                    { "name": "Theory of Relativity", "startIndex": 27, "endIndex": 47, "iri": "example-kb/Physics/Theory_of_relativity", "type": "Theory" }
+                ]
+            }
+        ]
+    },
+    {
+        "filename": "path/to/Report.txt",
+        "language": "en",
+        "sentences": [
+            {
+                "sentence": "Ada Lovelace is considered the first computer programmer.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 57,
+                "entityMentions": [
+                    { "name": "Ada Lovelace", "startIndex": 0, "endIndex": 12, "iri": "example-kb/Computer_Science/Ada_Lovelace", "type": "Person" },
+                    { "name": "First computer programmer", "startIndex": 26, "endIndex": 48, "iri": "example-kb/Computer_Science/First_programmer", "type": "Achievement" }
+                ]
+            }
+        ]
+    }
+]
