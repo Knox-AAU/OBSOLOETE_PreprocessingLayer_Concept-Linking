@@ -26,11 +26,11 @@ def untrainedSpacySolution():
 
     #writeFile("../files/output.json", json.dumps(triples))
 
-untrainedSpacySolution()
+#untrainedSpacySolution()
 
 def stringComparisonSolution():
     ontTypes = queryLabels()
     triples = generateTriples(data, ontTypes)
     # Convert the array to a JSON string
     writeFile("../files/output.json", json.dumps(triples))
-#stringComparisonSolution()
+stringComparisonSolution()
