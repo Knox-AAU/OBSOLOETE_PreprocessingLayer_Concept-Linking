@@ -29,7 +29,6 @@ def generateOntologyClasses():
     g = Graph()
     g.parse("files/ontology.ttl", format="ttl")
 
-    # TODO: Get all correct classes from ontology.
     # se om ontology og spacy classerne er de samme, hvis nej print listen for dem
     query = """
         SELECT DISTINCT ?class
@@ -53,6 +52,7 @@ def queryLabels():
     g = Graph()
     g.parse("files/ontology.ttl", format="ttl")
 
+    #find labels på alle klasser
     qres = g.query( """
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -106,18 +106,18 @@ def generateTriples(JSONObject, classesDict):
             SIMILARITY_REQ = 0.9 #minimumkrav til string similarity.
 
             if language is ontologyLanguage:
-                matchingWords = findEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ)
+                matchingWords = findEnMatches(words, classesDict, SIMILARITY_REQ)
             else:
-                matchingWords = findNonEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ, language)
+                matchingWords = findNonEnMatches(words, classesDict, SIMILARITY_REQ, language)
  
-            #HUSK opdatér passende IRI-domain for predicate, når vi har snakket med gruppe C
             for word in matchingWords:
                 for em in ems:
                     triples.append((em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className']))
     return triples
 
 # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
-def findEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ):
+def findEnMatches(words, classesDict, SIMILARITY_REQ):
+    matchingWords = []
     for word in words:
                 for className, labelsList in classesDict.items():
                     for label_dict in labelsList:
@@ -127,8 +127,9 @@ def findEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ):
     return matchingWords
 
 # Samme som findEnMatches, men tjekker efter et label match på originalsproget. Hvis der ikke findes et label på sproget, så oversætter vi og leder efter et passende engelsk label.
-def findNonEnMatches(words, classesDict, matchingWords, SIMILARITY_REQ, language):
+def findNonEnMatches(words, classesDict, SIMILARITY_REQ, language):
     translatedWords = []
+    matchingWords = []
     for word in words:
         translatedWords.append(translateWordToEn(word, language))
 
