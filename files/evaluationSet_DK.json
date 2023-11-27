@@ -1,0 +1,376 @@
+[
+    {
+        "fileName": "Artikel_DK.txt",
+        "language": "da",
+        "sentences": [
+            {
+                "sentence": "Nordjyske erhvervsliv oplever stigende efterspÃ¸rgsel efter bÃ¦redygtige energilÃ¸sninger.",
+                "sentenceStartIndex": 0,
+                "sentenceEndIndex": 91,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 0,
+                        "endIndex": 9,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    },
+                    {
+                        "name": "energilÃ¸sninger",
+                        "type": "Entity",
+                        "label": "PER",
+                        "startIndex": 73,
+                        "endIndex": 89,
+                        "iri": "knox-kb01.srv.aau.dk/energilÃ¸sninger"
+                    }
+                ]
+            },
+            {
+                "sentence": "En ny undersÃ¸gelse konkluderer, at klimaforandringerne har en direkte indvirkning pÃ¥ forskellige danske dyrearter.",
+                "sentenceStartIndex": 91,
+                "sentenceEndIndex": 208,
+                "entityMentions": [
+                    {
+                        "name": "danske",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 190,
+                        "endIndex": 196,
+                        "iri": "knox-kb01.srv.aau.dk/danske"
+                    }
+                ]
+            },
+            {
+                "sentence": "En nylig undersÃ¸gelse afslÃ¸rer, at virksomheder i Nordjylland og Aarhus intensiverer samarbejdet om bÃ¦redygtige energilÃ¸sninger for at imÃ¸dekomme stigende efterspÃ¸rgsel.Kunstnere fra hele landet deltager i Ã¥rets kulturfestival i Aalborg.",
+                "sentenceStartIndex": 208,
+                "sentenceEndIndex": 453,
+                "entityMentions": [
+                    {
+                        "name": "Nordjylland",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 260,
+                        "endIndex": 271,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjylland"
+                    },
+                    {
+                        "name": "Aarhus",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 275,
+                        "endIndex": 281,
+                        "iri": "knox-kb01.srv.aau.dk/Aarhus"
+                    },
+                    {
+                        "name": "energilÃ¸sninger",
+                        "type": "Entity",
+                        "label": "PER",
+                        "startIndex": 323,
+                        "endIndex": 339,
+                        "iri": "knox-kb01.srv.aau.dk/energilÃ¸sninger"
+                    },
+                    {
+                        "name": "Aalborg",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 445,
+                        "endIndex": 452,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborg"
+                    }
+                ]
+            },
+            {
+                "sentence": "Ã˜get kriminalitet i de nordjyske forstÃ¦der bekymrer politiet, der intensiverer patruljeringen.",
+                "sentenceStartIndex": 454,
+                "sentenceEndIndex": 551,
+                "entityMentions": [
+                    {
+                        "name": "nordjyske",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 478,
+                        "endIndex": 487,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Sundhedsmyndighederne ivÃ¦rksÃ¦tter nye tiltag for at inddÃ¦mme smittespredningen i regionens skoler.",
+                "sentenceStartIndex": 551,
+                "sentenceEndIndex": 652,
+                "entityMentions": [
+                    {
+                        "name": "inddÃ",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 605,
+                        "endIndex": 610,
+                        "iri": "knox-kb01.srv.aau.dk/inddÃ"
+                    }
+                ]
+            },
+            {
+                "sentence": "Ny teknologi revolutionerer produktionsmetoderne inden for fÃ¸devareindustrien.",
+                "sentenceStartIndex": 653,
+                "sentenceEndIndex": 732,
+                "entityMentions": [
+                    {
+                        "name": "fÃ¸devareindustrien",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 712,
+                        "endIndex": 731,
+                        "iri": "knox-kb01.srv.aau.dk/fÃ¸devareindustrien"
+                    }
+                ]
+            },
+            {
+                "sentence": "Ã…rets sportsprisuddeling hylder lokale sportsstjerner for deres prÃ¦stationer.",
+                "sentenceStartIndex": 732,
+                "sentenceEndIndex": 812,
+                "entityMentions": [
+                    {
+                        "name": "Ã",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 733,
+                        "endIndex": 734,
+                        "iri": "knox-kb01.srv.aau.dk/Ã"
+                    }
+                ]
+            },
+            {
+                "sentence": "ByrÃ¥det godkender ambitiÃ¸se planer for bÃ¦redygtig byudvikling i Aalborgs centrum.Lokale landmÃ¦nd i HjÃ¸rring og Frederikshavn rapporterer om udfordringer med klimaforandringer, der pÃ¥virker bÃ¥de afgrÃ¸der og dyrebestande.",
+                "sentenceStartIndex": 813,
+                "sentenceEndIndex": 1042,
+                "entityMentions": [
+                    {
+                        "name": "ByrÃ¥det",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 813,
+                        "endIndex": 821,
+                        "iri": "knox-kb01.srv.aau.dk/ByrÃ¥det"
+                    },
+                    {
+                        "name": "Aalborgs",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 880,
+                        "endIndex": 888,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborgs"
+                    },
+                    {
+                        "name": "Frederikshavn",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 930,
+                        "endIndex": 943,
+                        "iri": "knox-kb01.srv.aau.dk/Frederikshavn"
+                    },
+                    {
+                        "name": "pÃ¥virker",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 999,
+                        "endIndex": 1008,
+                        "iri": "knox-kb01.srv.aau.dk/pÃ¥virker"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nordjyske kommuner investerer i grÃ¸nne initiativer for at nedbringe CO2-udledningen.",
+                "sentenceStartIndex": 1042,
+                "sentenceEndIndex": 1127,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1042,
+                        "endIndex": 1051,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "Kulturhuset lancerer et varieret program af aktiviteter for bÃ¸rn og unge i vinterferien.",
+                "sentenceStartIndex": 1128,
+                "sentenceEndIndex": 1217,
+                "entityMentions": [
+                    {
+                        "name": "Kulturhuset",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1128,
+                        "endIndex": 1139,
+                        "iri": "knox-kb01.srv.aau.dk/Kulturhuset"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nye statistikker viser en markant stigning i antallet af turister, der besÃ¸ger det nordlige Danmark.Danmarks stÃ¸rste teknologimesse tiltrÃ",
+                "sentenceStartIndex": 1218,
+                "sentenceEndIndex": 1359,
+                "entityMentions": [
+                    {
+                        "name": "Danmark",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1311,
+                        "endIndex": 1318,
+                        "iri": "knox-kb01.srv.aau.dk/Danmark"
+                    },
+                    {
+                        "name": "Danmarks",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1320,
+                        "endIndex": 1328,
+                        "iri": "knox-kb01.srv.aau.dk/Danmarks"
+                    }
+                ]
+            },
+            {
+                "sentence": "Nordjyske erhvervsliv oplever en bÃ¸lge af opstartsvirksomheder og innovation.",
+                "sentenceStartIndex": 1411,
+                "sentenceEndIndex": 1490,
+                "entityMentions": [
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1411,
+                        "endIndex": 1420,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "LandmÃ¦nd i regionen kÃ¦mper med udfordringer som tÃ¸rke og Ã¦ndringer i landbruget.Nordjyske restauranter",
+                "sentenceStartIndex": 1490,
+                "sentenceEndIndex": 1597,
+                "entityMentions": [
+                    {
+                        "name": "kÃ",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1511,
+                        "endIndex": 1513,
+                        "iri": "knox-kb01.srv.aau.dk/kÃ"
+                    },
+                    {
+                        "name": "tÃ¸rke",
+                        "type": "Entity",
+                        "label": "MISC",
+                        "startIndex": 1540,
+                        "endIndex": 1546,
+                        "iri": "knox-kb01.srv.aau.dk/tÃ¸rke"
+                    },
+                    {
+                        "name": "Ã",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1550,
+                        "endIndex": 1551,
+                        "iri": "knox-kb01.srv.aau.dk/Ã"
+                    },
+                    {
+                        "name": "Nordjyske",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1575,
+                        "endIndex": 1584,
+                        "iri": "knox-kb01.srv.aau.dk/Nordjyske"
+                    }
+                ]
+            },
+            {
+                "sentence": "I et nyt initiativ samarbejder Aalborg Kommune, Aalborg Universitet og lokale erhvervsliv om en ambitiÃ¸s plan for at tiltrÃ",
+                "sentenceStartIndex": 1667,
+                "sentenceEndIndex": 1791,
+                "entityMentions": [
+                    {
+                        "name": "Aalborg Kommune",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1698,
+                        "endIndex": 1713,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborg_Kommune"
+                    },
+                    {
+                        "name": "Aalborg Universitet",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1715,
+                        "endIndex": 1734,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborg_Universitet"
+                    }
+                ]
+            },
+            {
+                "sentence": "Et spÃ¦ndende kunstprojekt, stÃ¸ttet af Kulturministeriet, samler kunstnere fra KÃ¸benhavn, Aalborg og Aarhus for at udforske kreative udtryk og lokale identiteter.Regionens politi, skoler og sundhedsmyndigheder gÃ¥r sammen om at tackle ungdomskriminalitet og skabe bedre forhold for unge i udsatte omrÃ¥der.Aalborg",
+                "sentenceStartIndex": 1830,
+                "sentenceEndIndex": 2147,
+                "entityMentions": [
+                    {
+                        "name": "Kulturministeriet",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 1870,
+                        "endIndex": 1887,
+                        "iri": "knox-kb01.srv.aau.dk/Kulturministeriet"
+                    },
+                    {
+                        "name": "KÃ¸benhavn",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1910,
+                        "endIndex": 1920,
+                        "iri": "knox-kb01.srv.aau.dk/KÃ¸benhavn"
+                    },
+                    {
+                        "name": "Aalborg",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1922,
+                        "endIndex": 1929,
+                        "iri": "knox-kb01.srv.aau.dk/Aalborg"
+                    },
+                    {
+                        "name": "Aarhus",
+                        "type": "Entity",
+                        "label": "LOC",
+                        "startIndex": 1933,
+                        "endIndex": 1939,
+                        "iri": "knox-kb01.srv.aau.dk/Aarhus"
+                    },
+                    {
+                        "name": "sundhedsmyndigheder",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 2023,
+                        "endIndex": 2042,
+                        "iri": "knox-kb01.srv.aau.dk/sundhedsmyndigheder"
+                    }
+                ]
+            },
+            {
+                "sentence": "Lufthavn lancerer nye direkte flyvninger til populÃ¦re europÃ",
+                "sentenceStartIndex": 2148,
+                "sentenceEndIndex": 2209,
+                "entityMentions": [
+                    {
+                        "name": "europÃ",
+                        "type": "Entity",
+                        "label": "ORG",
+                        "startIndex": 2203,
+                        "endIndex": 2209,
+                        "iri": "knox-kb01.srv.aau.dk/europÃ"
+                    }
+                ]
+            }
+        ]
+    }
+]
