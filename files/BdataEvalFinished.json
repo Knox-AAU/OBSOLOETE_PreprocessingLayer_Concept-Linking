@@ -67,7 +67,8 @@
           {
             "name": "Martin Kjær",
             "startIndex": 13,
-            "endIndex": 24
+            "endIndex": 24,
+            "expectedType": "Person"
           },
           {
             "name": "the Norwegian Working Environment Authority",
