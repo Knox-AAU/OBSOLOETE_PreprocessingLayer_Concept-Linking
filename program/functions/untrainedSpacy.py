@@ -48,10 +48,6 @@ def generateSpacyUnmatchedExplanations():
         )
 
 
-def linkSpacyLabels():
-    labelsLinked = linkMatched()
-    labelsLinked.update(linkUnmatched())
-    return labelsLinked
 
 
 def linkMatched():
@@ -62,8 +58,12 @@ def linkMatched():
     return labels_dict
 
 
-def linkUnmatched():
-    #matches all labels with dbpedia
+
+
+def generateTriplesFromJSON(JSONobject):
+    triples = []
+    
+    # matches the spaCy labels to the ontology classes 
     labels_dict = {
         "fac": "https://dbpedia.org/ontology/Building",
         "gpe": "https://dbpedia.org/ontology/Country",
@@ -72,42 +72,28 @@ def linkUnmatched():
         "org": "https://dbpedia.org/ontology/Organisation",
         "product": "https://www.w3.org/2002/07/owl#/thing",
         "work_of_art": "https://dbpedia.org/ontology/Artwork",
-        "person": "https://dbpedia.org/ontology/Person"
+        "person": "https://dbpedia.org/ontology/Person",
+        "per": "https://dbpedia.org/ontology/Person", 
+        "misc": "https://www.w3.org/2002/07/owl#/thing"
+        
     }
 
-    return labels_dict
-
-
-def generateTriplesFromJSON(labelsDict, JSONobject):
-    triples = []
-
     for obj in JSONobject:
-        language = obj["language"]
 
         for sentence in obj['sentences']:
-            sent = nlp(sentence['sentence'])
             ems = sentence['entityMentions']
-      
-
-            # Translate from detected language to English
-            if language != "en":
-                translated_sentence = translateWordToEn(sentence['sentence'], language)
-                sent = nlp(translated_sentence)
-
-            for em in ems: 
+            sentence = sentence['sentence']
+            
+            for em in ems:
                 em_iri = em["iri"]
                 em_label = em["label"].lower()
                 em_type = em["type"].lower()
                 
                 if em_type == "entity":
-                    #get the value from the dictionary                        
-                    labels_dict = linkUnmatched() 
+                    #get the value from the dictionary 
                     dbpedia_uri = labels_dict.get(em_label, em_label)  
 
                     triple = (em_iri, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)
                     triples.append(triple)
-                    
-                
     return triples
-
-#TODO: Clean up code
+                        
