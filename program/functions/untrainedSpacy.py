@@ -1,15 +1,13 @@
 import spacy
-import json
-from .utils import *
+from .utils import clearFile, appendFile, writeFile, readFile
 
 
 nlp = spacy.load("en_core_web_lg")
 nlp_da = spacy.load("da_core_news_lg")
 
 
-
 def generateSpacyLabels():
-    # Collect spaCy labels in array and sets it to lower case. Then saves to file.
+    # Collect spaCy labels in list and sets it to lower case. Then saves to file.
     spacy_labelsLC = []
     spacy_labels = nlp.get_pipe("ner").labels
     for label in spacy_labels:
@@ -22,13 +20,12 @@ def generateSpacyMatches():
     matched_labels = []
     unmatched_labels = []
 
-    # print(readFile("../documents/spacy_labels.txt"))
     spacy_labels = readFile("../documents/spacy_labels.txt").splitlines()
     ontology_classes = readFile("../documents/ontology_classes.txt").splitlines()
 
     for label in spacy_labels:
-        for o_class in ontology_classes:
-            if label == o_class:
+        for ontology_class in ontology_classes:
+            if label == ontology_class:
                 matched_labels.append(label)
         if label != matched_labels[-1]:
             unmatched_labels.append(label)
@@ -38,6 +35,7 @@ def generateSpacyMatches():
 
 
 def generateSpacyUnmatchedExplanations():
+    # Generates a file with a little explanation for each of the unmatched spaCy labels
     clearFile("../documents/spacy_explanations.txt")
 
     unmatched_labels = readFile("../documents/spacy_unmatched.txt").splitlines()
@@ -48,21 +46,18 @@ def generateSpacyUnmatchedExplanations():
         )
 
 
+def generateTriplesFromJSON(json_object):
+    """
+        Generates triples from entity mentions in sentences based on spaCy and ontology classes.
 
+        Parameters:
+        - json_object: JSON object containing sentences with entity mentions.
 
-def linkMatched():
-    labels_dict = {}
-    matched_labels = readFile("../documents/spacy_matched.txt").splitlines()
-    for matched in matched_labels:
-        labels_dict[matched] = matched
-    return labels_dict
-
-
-
-
-def generateTriplesFromJSON(JSONobject):
+        Returns:
+        - list: List of triples (subject, predicate, object).
+    """
     triples = []
-    
+
     # matches the spaCy labels to the ontology classes 
     labels_dict = {
         "fac": "https://dbpedia.org/ontology/Building",
@@ -78,7 +73,7 @@ def generateTriplesFromJSON(JSONobject):
         
     }
 
-    for obj in JSONobject:
+    for obj in json_object:
 
         for sentence in obj['sentences']:
             ems = sentence['entityMentions']
