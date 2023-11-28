@@ -2,7 +2,7 @@ from functions.ontology import *
 from functions.untrainedSpacy import *
 import json
 
-f = open("../files/entity_mentions.json",  encoding="utf-8")
+f = open("../files/entity_mentions_DK.json",  encoding="utf-8")
 data = json.load(f)
 
 def generateTXTfiles():
@@ -17,8 +17,7 @@ def generateTXTfiles():
 #generateTXTfiles()
 
 def untrainedSpacySolution():
-    labelsDict = linkSpacyLabels()
-    triples = generateTriplesFromJSON(labelsDict, data)
+    triples = generateTriplesFromJSON(data)
     
     output_path = "../files/output.json"
     with open(output_path, "w", encoding = "utf-8") as outfile:
