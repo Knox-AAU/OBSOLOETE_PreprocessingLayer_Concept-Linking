@@ -1,9 +1,14 @@
-from .utils import *
-from rdflib import Graph, URIRef, Namespace
+from utils import writeFile, translateWordToEn, similar
+from rdflib import Graph
+
+ontology_path = "../../data/files/ontology.ttl"
+ontology_datatypes_path = "../../data/documents/ontology_datatypes.txt"
+ontology_classes_path = "../../data/documents/ontology_classes.txt"
+ontology_classes_multilingual_path = "../../data/documents/ontology_classes_multilingual.txt"
 
 def generateOntologyDatatypes():
     g = Graph()
-    g.parse("files/ontology.ttl", format="ttl")
+    g.parse(ontology_path, format="ttl")
 
     # TODO: Get all datatype properties from ontology.
     query = """
@@ -22,12 +27,12 @@ def generateOntologyDatatypes():
     ]
 
     # Save to file using the provided writeFile function
-    writeFile("../documents/ontology_datatypes.txt", "\n".join(datatype_properties_lc))
+    writeFile(ontology_datatypes_path, "\n".join(datatype_properties_lc))
 
 
 def generateOntologyClasses():
     g = Graph()
-    g.parse("files/ontology.ttl", format="ttl")
+    g.parse(ontology_path, format="ttl")
 
     # se om ontology og spacy classerne er de samme, hvis nej print listen for dem
     query = """
@@ -46,11 +51,11 @@ def generateOntologyClasses():
         ontology_classesLC.append(
             ontology_class.removeprefix("http://dbpedia.org/ontology/")
         )
-    writeFile("../documents/ontology_classes.txt", "\n".join(ontology_classesLC))
+    writeFile(ontology_classes_path, "\n".join(ontology_classesLC))
 
 def queryLabels():
     g = Graph()
-    g.parse("files/ontology.ttl", format="ttl")
+    g.parse(ontology_path, format="ttl")
 
     #find labels på alle klasser
     qres = g.query( """
@@ -76,7 +81,7 @@ def queryLabels():
             classesDict[className] = []
         classesDict[className].append({labelLang: label})
     
-    with open("../documents/ontology_CL.txt", 'w') as f:
+    with open(ontology_classes_multilingual_path, 'w') as f:
        for key, value in classesDict.items():
           f.write(f'{key}: {value}\n')
     return classesDict
@@ -87,10 +92,10 @@ def generateTriples(JSONObject, classesDict):
         language = object["language"]
         ontologyLanguage = "en"
         for sentence in object['sentences']:
-            sent = sentence['sentence']
             ems = sentence['entityMentions'] 
             filtered_ems = [em for em in sentence.get('entityMentions', []) if em.get('type') == 'Entity']
-            new_sent = sent
+            sentence = sentence['sentence']
+            new_sent = sentence
 
             ems_indices = []
             for em in ems:
@@ -113,7 +118,7 @@ def generateTriples(JSONObject, classesDict):
  
             for word in matchingWords:
                 for em in filtered_ems:
-                    triples.append({sent: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className'])})
+                    triples.append({sentence: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className'])})
     return triples
 
 # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
