@@ -1,9 +1,15 @@
 import spacy
-from .utils import clearFile, appendFile, writeFile, readFile
+from utils import clearFile, appendFile, writeFile, readFile
 
 
 nlp = spacy.load("en_core_web_lg")
 nlp_da = spacy.load("da_core_news_lg")
+
+spacy_label_path = "../../documents/spacy_labels.txt"
+ontology_classes_path = "../../data/documents/ontology_classes.txt"
+spacy_matched_path = "../../data/documents/spacy_matched.txt"
+spacy_unmatched_path = "../../data/documents/spacy_unmatched.txt"
+spacy_explanations_path = "../../data/documents/spacy_explanations.txt"
 
 
 def generateSpacyLabels():
@@ -12,7 +18,7 @@ def generateSpacyLabels():
     spacy_labels = nlp.get_pipe("ner").labels
     for label in spacy_labels:
         spacy_labelsLC.append(label.lower())
-    writeFile("../documents/spacy_labels.txt", "\n".join(spacy_labelsLC))
+    writeFile(spacy_label_path, "\n".join(spacy_labelsLC))
 
 
 def generateSpacyMatches():
@@ -20,8 +26,8 @@ def generateSpacyMatches():
     matched_labels = []
     unmatched_labels = []
 
-    spacy_labels = readFile("../documents/spacy_labels.txt").splitlines()
-    ontology_classes = readFile("../documents/ontology_classes.txt").splitlines()
+    spacy_labels = readFile(spacy_label_path).splitlines()
+    ontology_classes = readFile(ontology_classes_path).splitlines()
 
     for label in spacy_labels:
         for ontology_class in ontology_classes:
@@ -30,18 +36,18 @@ def generateSpacyMatches():
         if label != matched_labels[-1]:
             unmatched_labels.append(label)
 
-    writeFile("../documents/spacy_matched.txt", "\n".join(matched_labels))
-    writeFile("../documents/spacy_unmatched.txt", "\n".join(unmatched_labels))
+    writeFile(spacy_matched_path, "\n".join(matched_labels))
+    writeFile(spacy_unmatched_path, "\n".join(unmatched_labels))
 
 
 def generateSpacyUnmatchedExplanations():
     # Generates a file with a little explanation for each of the unmatched spaCy labels
-    clearFile("../documents/spacy_explanations.txt")
+    clearFile(spacy_explanations_path)
 
-    unmatched_labels = readFile("../documents/spacy_unmatched.txt").splitlines()
+    unmatched_labels = readFile(spacy_unmatched_path).splitlines()
     for unmatched in unmatched_labels:
         appendFile(
-            "../documents/spacy_explanations.txt",
+            spacy_explanations_path,
             "".join(unmatched + ": " + spacy.explain(unmatched.upper())) + "\n",
         )
 
@@ -79,6 +85,7 @@ def generateTriplesFromJSON(json_object):
             ems = sentence['entityMentions']
             sentence = sentence['sentence']
             
+            
             for em in ems:
                 em_iri = em["iri"]
                 em_label = em["label"].lower()
@@ -88,7 +95,6 @@ def generateTriplesFromJSON(json_object):
                     #get the value from the dictionary 
                     dbpedia_uri = labels_dict.get(em_label, em_label)  
 
-                    triple = (em_iri, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)
-                    triples.append(triple)
+                    triples.append({sentence: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)})
     return triples
                         
