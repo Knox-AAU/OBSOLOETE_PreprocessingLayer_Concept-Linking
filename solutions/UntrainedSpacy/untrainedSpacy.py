@@ -66,8 +66,11 @@ def generateTriplesFromJSON(json_object):
 
     # matches the spaCy labels to the ontology classes 
     labels_dict = {
+        "event": "https://dbpedia.org/ontology/Event",
         "fac": "https://dbpedia.org/ontology/Building",
         "gpe": "https://dbpedia.org/ontology/Country",
+        "language": "https://dbpedia.org/ontology/Language",
+        "law": "https://dbpedia.org/ontology/Law",
         "loc": "https://dbpedia.org/ontology/Location",
         "norp": "https://dbpedia.org/ontology/Group",
         "org": "https://dbpedia.org/ontology/Organisation",
@@ -80,11 +83,9 @@ def generateTriplesFromJSON(json_object):
     }
 
     for obj in json_object:
-
         for sentence in obj['sentences']:
             ems = sentence['entityMentions']
             sentence = sentence['sentence']
-            
             
             for em in ems:
                 em_iri = em["iri"]
@@ -94,7 +95,6 @@ def generateTriplesFromJSON(json_object):
                 if em_type == "entity":
                     #get the value from the dictionary 
                     dbpedia_uri = labels_dict.get(em_label, em_label)  
-
-                    triples.append({sentence: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)})
+                    triples.append({sentence: (em_iri, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", dbpedia_uri)})
     return triples
                         
