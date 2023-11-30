@@ -6,7 +6,7 @@ from src.prediction_dataset import PredictionDataset
 
 #hunginface
 # Load your data
-test_data = load_data('test/predict_data.json')
+test_data = load_data('test/predict_3_classes.json')
 test_data = extract_sentences(test_data)
 
 # Create an instance of your model (the same architecture as during training)
@@ -16,7 +16,7 @@ model = ModelClass(ModelConfig.input_size,
                    ModelConfig.num_classes)
 
 # Load the trained model
-model.load_state_dict(torch.load('model.pth'))
+model.load_state_dict(torch.load('3_classes_model.pth'))
 model.eval()  # Set the model to evaluation mode
 
 # Create PredictionDataset with the loaded model
@@ -24,15 +24,9 @@ prediction_dataset = PredictionDataset(test_data, model)
 
 class_index_to_name = {
     0: 'Person',
-    1: 'Airport',
-    2: 'Outbreak',
-    3: 'Arena',
-    4: 'Anime',
-    5: 'Album',
-    6: 'Bank',
-    7: 'Colour',
-    8: 'Horse',
-    9: 'Instrument'
+    1: 'Place',
+    2: 'Organisation'
+
     # ... add more as needed
 }
 

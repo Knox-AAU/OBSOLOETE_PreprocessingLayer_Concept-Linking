@@ -24,8 +24,7 @@ def custom_collate(batch):
 
 def train_model(train_data, val_data, config=TrainingConfig):
     # Instantiate your dataset class for training and validation
-    possible_labels = ['Person', 'Airport', 'Outbreak', 'Arena', 'Anime', 'Album', 'Bank', 'Colour', 'Horse',
-                       'Instrument']
+    possible_labels = ['Person', 'Place', 'Organisation']
     train_dataset = TrainingDataset(train_data, possible_labels)
     val_dataset = TrainingDataset(val_data, possible_labels)
 
@@ -99,6 +98,6 @@ def train_model(train_data, val_data, config=TrainingConfig):
         print(f'Epoch {epoch+1}/{config.num_epochs} => Train Loss: {avg_train_loss:.4f}, Val Loss: {avg_val_loss:.4f}')
 
     # Save the trained model
-    torch.save(model.state_dict(), 'model.pth')
+    torch.save(model.state_dict(), '3_classes_model.pth')
 
     return model
