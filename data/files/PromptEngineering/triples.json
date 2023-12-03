@@ -1,0 +1,17 @@
+[
+  [
+    "knox-kb01.srv.aau.dk/Barack_Obama",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "http://dbpedia.org/ontology/Person"
+  ],
+  [
+    "knox-kb01.srv.aau.dk/Michelle_Obama",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "http://dbpedia.org/ontology/Person"
+  ],
+  [
+    "knox-kb01.srv.aau.dk/Washington_D._C.",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "http://dbpedia.org/ontology/Person"
+  ]
+]
