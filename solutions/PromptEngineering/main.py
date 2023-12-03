@@ -2,6 +2,8 @@ import json
 import re
 import time
 import requests
+import time
+
 
 api_url = "http://127.0.0.1:5000/llama"
 headers = {"Content-Type": "application/json"}
@@ -41,6 +43,7 @@ def generate_triples(output_data):
 
 
 def classify_entity_mentions():
+    start_time = time.time()
     # Needs to be replaced with ontology
     ontology_classes = "Person, Place, Time, Organisation, Event, Academic, AcademicConference"
     # creates a list of ontology_classes
@@ -132,7 +135,9 @@ def classify_entity_mentions():
                             }
                             output_data["sentences"].append(output_sentence_data)
                             break  # Exit the while loop if entity is mapped to a provided ontology class
-
+    end_time = time.time()
+    elapsed_time = round((end_time - start_time), 2)
+    print(f"Elapsed time: {elapsed_time} seconds")
     return output_data
 
 
