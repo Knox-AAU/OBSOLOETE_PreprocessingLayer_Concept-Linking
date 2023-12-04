@@ -1,9 +1,10 @@
 import json
 import re
-import time
 import requests
 import time
 
+from rdflib import Graph, URIRef
+from rdflib.plugins.sparql import prepareQuery
 
 api_url = "http://127.0.0.1:5000/llama"
 headers = {"Content-Type": "application/json"}
@@ -11,8 +12,11 @@ headers = {"Content-Type": "application/json"}
 
 # Read all ontology classes from file
 def read_ontology_class():
-    with open('../../data/files/PromptEngineering/person.txt') as file1:
-        return [line.strip() for line in file1]
+    return extract_super_classes_from_ontology()
+    # print(superclasses)
+    # # return superclasses
+    # with open('../../data/files/PromptEngineering/person.txt') as file1:
+    #     return [line.strip() for line in file1]
 
 
 # Open the JSON file with sentences for reading - use as input
@@ -44,10 +48,14 @@ def generate_triples(output_data):
 
 def classify_entity_mentions():
     start_time = time.time()
-    # Needs to be replaced with ontology
-    ontology_classes = "Person, Place, Time, Organisation, Event, Academic, AcademicConference"
-    # creates a list of ontology_classes
-    ontology_classes_list = [cls.strip() for cls in ontology_classes.split(',')]
+
+    ontology_classes_list = read_ontology_class()
+    ontology_classes_string = ", ".join(ontology_classes_list)
+
+    # ontology_classes = "Person, Place, Time, Organisation, Event, Academic, AcademicConference"
+    # # creates a list of ontology_classes
+    # ontology_classes_list = [cls.strip() for cls in ontology_classes.split(',')]
+
     output_data = {"sentences": []}
     max_retries = 3
 
@@ -87,7 +95,7 @@ def classify_entity_mentions():
                     prompt = {key: value.format(
                         content_sentence=content_sentence,
                         content_entity=content_entity,
-                        ontology_classes=ontology_classes
+                        ontology_classes=ontology_classes_string
                     ) if isinstance(value, str) else value for key, value in prompt_template.items()}
 
                     inner_while_retry_count = 0
@@ -139,6 +147,36 @@ def classify_entity_mentions():
     elapsed_time = round((end_time - start_time), 2)
     print(f"Elapsed time: {elapsed_time} seconds")
     return output_data
+
+
+# Considering all classes that is a direct subclass of owl:Thing as a root class.
+def extract_super_classes_from_ontology():
+    g = Graph()
+    ontology_file_path = "../data/files/ontology.ttl"
+    g.parse(ontology_file_path, format="ttl")
+
+    # Define RDF namespace prefixes
+    rdfs = URIRef("http://www.w3.org/2000/01/rdf-schema#")
+    owl = URIRef("http://www.w3.org/2002/07/owl#")
+
+    query_str = """SELECT ?class
+    WHERE {
+        ?class a owl:Class ;
+               rdfs:subClassOf owl:Thing .
+    }"""
+    query = prepareQuery(query_str, initNs={"rdfs": rdfs, "owl": owl})
+    res = g.query(query)
+    root_classes = []
+
+    try:
+        for row in res:
+            class_uri = row['class']
+            class_name = class_uri.split("/")[-1]
+            root_classes.append(class_name)
+    except Exception as e:
+        print(e)
+
+    return root_classes
 
 
 if __name__ == '__main__':
