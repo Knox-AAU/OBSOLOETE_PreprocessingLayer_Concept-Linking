@@ -150,32 +150,3 @@ def extract_all_classes_from_ontology():
 
     return entries
 
-
-# # Considering all classes that is a direct subclass of owl:Thing as a root class.
-# def extract_super_classes_from_ontology():
-#     g = Graph()
-#     g.parse(ontology_file_path, format="ttl")
-#
-#     # Define RDF namespace prefixes
-#     rdfs = URIRef("http://www.w3.org/2000/01/rdf-schema#")
-#     owl = URIRef("http://www.w3.org/2002/07/owl#")
-#
-#     query_str = """SELECT ?class
-#     WHERE {
-#         ?class a owl:Class ;
-#                rdfs:subClassOf owl:Thing .
-#     }"""
-#     query = prepareQuery(query_str, initNs={"rdfs": rdfs, "owl": owl})
-#     res = g.query(query)
-#     root_classes = []
-#
-#     try:
-#         for row in res:
-#             class_uri = row['class']
-#             class_name = class_uri.split("/")[-1]
-#             root_classes.append(class_name)
-#     except Exception as e:
-#         print(e)
-#
-#     return root_classes
-

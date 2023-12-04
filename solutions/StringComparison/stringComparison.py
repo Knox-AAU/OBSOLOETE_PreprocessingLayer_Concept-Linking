@@ -6,6 +6,7 @@ ontology_datatypes_path = "../../data/documents/ontology_datatypes.txt"
 ontology_classes_path = "../../data/documents/ontology_classes.txt"
 ontology_classes_multilingual_path = "../../data/documents/ontology_classes_multilingual.txt"
 
+
 def generateOntologyDatatypes():
     g = Graph()
     g.parse(ontology_path, format="ttl")
@@ -53,12 +54,13 @@ def generateOntologyClasses():
         )
     writeFile(ontology_classes_path, "\n".join(ontology_classesLC))
 
+
 def queryLabels():
     g = Graph()
     g.parse(ontology_path, format="ttl")
 
     #find labels på alle klasser
-    qres = g.query( """
+    qres = g.query("""
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
@@ -67,7 +69,7 @@ def queryLabels():
         ?class a owl:Class .
         ?class rdfs:label ?label .
     } 
-    """ )
+    """)
 
     classesDict = {}
     for row in qres:
@@ -85,6 +87,7 @@ def queryLabels():
        for key, value in classesDict.items():
           f.write(f'{key}: {value}\n')
     return classesDict
+
 
 def generateTriples(JSONObject, classesDict):
     triples = []
@@ -121,6 +124,7 @@ def generateTriples(JSONObject, classesDict):
                     triples.append({sentence: (em['iri'], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://dbpedia.org/ontology/" + word['className'])})
     return triples
 
+
 # For hvert ord, check om det matcher et engelsk label på een af vores dict classer med minimin SIMILARITY_REQ. Hvis ja, tilføj til matchingWords.
 def findEnMatches(words, classesDict, SIMILARITY_REQ):
     matchingWords = []
@@ -132,7 +136,9 @@ def findEnMatches(words, classesDict, SIMILARITY_REQ):
                     break
     return matchingWords
 
-# Samme som findEnMatches, men tjekker efter et label match på originalsproget. Hvis der ikke findes et label på sproget, så oversætter vi og leder efter et passende engelsk label.
+
+# Samme som findEnMatches, men tjekker efter et label match på originalsproget. Hvis der ikke findes et label på
+# sproget, så oversætter vi og leder efter et passende engelsk label.
 def findNonEnMatches(words, classesDict, SIMILARITY_REQ, language):
     translatedWords = []
     matchingWords = []

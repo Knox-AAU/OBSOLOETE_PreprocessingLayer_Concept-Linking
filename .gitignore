@@ -165,3 +165,6 @@ data/files/EvaluationData/output.json
 
 #Llama model
 tools/LlamaServer/llama-2-7b-chat.Q2_K.gguf
+
+/.vscode
+/.idea
