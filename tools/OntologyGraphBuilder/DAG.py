@@ -3,20 +3,30 @@ import matplotlib.pyplot as plt
 from rdflib import Graph, URIRef
 from rdflib.plugins.sparql import prepareQuery
 
-def build_dag():
-    graph = build_ontology_graph(extract_classes_from_ontology())
-    root_class_name = "StatedResolution"
+ontology_file_path = "../data/files/ontology.ttl"
+
+
+def build_dag(node, include_superclasses=False, include_visualization=False):
+    graph = build_ontology_graph(extract_all_classes_from_ontology())
+    root_class_name = node
     try:
-        subgraph = depth_first_traversal(graph, root_class_name)
-        visualize_graph(subgraph)
+        if include_superclasses:
+            subgraph = generate_full_hierarchy_tree_for_node(graph, root_class_name)
+        else:
+            subgraph = generate_downwards_hierarchy_tree_for_node(graph, root_class_name)
+
+        if include_visualization:
+            visualize_graph(subgraph)
     except Exception as e:
         print(f'An error occurred {e}')
+
 
 def build_ontology_graph(ontology_data):
     graph = nx.DiGraph()
     for parent, child in ontology_data:
         graph.add_edge(child, parent)
     return graph
+
 
 def find_node_without_parents(graph):
     in_degrees = dict(graph.in_degree())
@@ -51,7 +61,9 @@ def visualize_graph(graph):
     plt.show()
     fig.clf()
     plt.close(fig)
-def depth_first_traversal(graph, start_node):
+
+
+def generate_full_hierarchy_tree_for_node(graph, start_node):
     visited_up = set()
     visited_down = set()
     sub_graph = nx.DiGraph()
@@ -62,6 +74,7 @@ def depth_first_traversal(graph, start_node):
             for parent in graph.predecessors(node):
                 sub_graph.add_edge(parent, node)
                 dfs_up(parent)
+                print(f'parent: {parent}')
 
     def dfs_down(node):
         if node not in visited_down:
@@ -69,16 +82,41 @@ def depth_first_traversal(graph, start_node):
             for child in graph.successors(node):
                 sub_graph.add_edge(node, child)
                 dfs_down(child)
+                print(f'child: {child}')
 
+    print('--- Creating full tree --- \n')
     dfs_up(start_node)
+    print(f'Start node: {start_node.upper()}')
     dfs_down(start_node)
+    print('---')
+    print(f'Nodes: {len(sub_graph)} \n')
     return sub_graph
 
 
+def generate_downwards_hierarchy_tree_for_node(graph, start_node):
+    visited_up = set()
+    visited_down = set()
+    sub_graph = nx.DiGraph()
 
-def extract_classes_from_ontology():
+    def dfs_down(node):
+        if node not in visited_down:
+            visited_down.add(node)
+            for child in graph.successors(node):
+                sub_graph.add_edge(node, child)
+                dfs_down(child)
+                print(f'child: {child}')
+
+    print('--- Creating downwards tree --- \n')
+    print(f'Start node: {start_node.upper()}')
+    dfs_down(start_node)
+    print('---')
+    print(f'Nodes: {len(sub_graph)} \n')
+    return sub_graph
+
+
+def extract_all_classes_from_ontology():
     g = Graph()
-    g.parse("../files/ontology.ttl", format="ttl")
+    g.parse(ontology_file_path, format="ttl")
 
     # Define RDF namespace prefixes
     rdfs = URIRef("http://www.w3.org/2000/01/rdf-schema#")
@@ -111,3 +149,33 @@ def extract_classes_from_ontology():
         print(e)
 
     return entries
+
+
+# # Considering all classes that is a direct subclass of owl:Thing as a root class.
+# def extract_super_classes_from_ontology():
+#     g = Graph()
+#     g.parse(ontology_file_path, format="ttl")
+#
+#     # Define RDF namespace prefixes
+#     rdfs = URIRef("http://www.w3.org/2000/01/rdf-schema#")
+#     owl = URIRef("http://www.w3.org/2002/07/owl#")
+#
+#     query_str = """SELECT ?class
+#     WHERE {
+#         ?class a owl:Class ;
+#                rdfs:subClassOf owl:Thing .
+#     }"""
+#     query = prepareQuery(query_str, initNs={"rdfs": rdfs, "owl": owl})
+#     res = g.query(query)
+#     root_classes = []
+#
+#     try:
+#         for row in res:
+#             class_uri = row['class']
+#             class_name = class_uri.split("/")[-1]
+#             root_classes.append(class_name)
+#     except Exception as e:
+#         print(e)
+#
+#     return root_classes
+

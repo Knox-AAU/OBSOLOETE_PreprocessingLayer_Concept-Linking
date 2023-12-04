@@ -1,0 +1,40 @@
+{
+  "sentences": [
+    {
+      "sentence": "Barack Obama is married to Michelle Obama, and they live in Washington D.C.",
+      "entityMentions": [
+        {
+          "name": "Barack Obama",
+          "startIndex": 0,
+          "endIndex": 12,
+          "iri": "knox-kb01.srv.aau.dk/Barack_Obama",
+          "classification": "Person"
+        }
+      ]
+    },
+    {
+      "sentence": "Barack Obama is married to Michelle Obama, and they live in Washington D.C.",
+      "entityMentions": [
+        {
+          "name": "Michelle Obama",
+          "startIndex": 29,
+          "endIndex": 42,
+          "iri": "knox-kb01.srv.aau.dk/Michelle_Obama",
+          "classification": "Person"
+        }
+      ]
+    },
+    {
+      "sentence": "Barack Obama is married to Michelle Obama, and they live in Washington D.C.",
+      "entityMentions": [
+        {
+          "name": "Washington D.C.",
+          "startIndex": 68,
+          "endIndex": 85,
+          "iri": "knox-kb01.srv.aau.dk/Washington_D._C.",
+          "classification": "Place"
+        }
+      ]
+    }
+  ]
+}
