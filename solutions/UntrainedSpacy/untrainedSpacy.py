@@ -3,7 +3,7 @@ from utils import clearFile, appendFile, writeFile, readFile
 
 
 nlp = spacy.load("en_core_web_lg")
-nlp_da = spacy.load("da_core_news_lg")
+#nlp_da = spacy.load("da_core_news_lg")
 
 spacy_label_path = "../../documents/spacy_labels.txt"
 ontology_classes_path = "../../data/documents/ontology_classes.txt"
@@ -68,10 +68,10 @@ def generateTriplesFromJSON(json_object):
     labels_dict = {
         "event": "https://dbpedia.org/ontology/Event",
         "fac": "https://dbpedia.org/ontology/Building",
-        "gpe": "https://dbpedia.org/ontology/Country",
+        "gpe": "https://dbpedia.org/ontology/PopulatedPlace",
         "language": "https://dbpedia.org/ontology/Language",
         "law": "https://dbpedia.org/ontology/Law",
-        "loc": "https://dbpedia.org/ontology/Location",
+        "loc": "https://dbpedia.org/ontology/Place",
         "norp": "https://dbpedia.org/ontology/Group",
         "org": "https://dbpedia.org/ontology/Organisation",
         "product": "https://www.w3.org/2002/07/owl#/thing",
