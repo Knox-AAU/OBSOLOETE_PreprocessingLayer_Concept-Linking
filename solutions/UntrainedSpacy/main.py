@@ -1,7 +1,7 @@
 from untrainedSpacy import *
 import json
 
-input_file = "../../data/files/EvaluationData/evaluationSet_EN.json"
+input_file = "../../data/files/EvaluationData/evaluationSet_DK.json"
 output_file = "../../data/files/EvaluationData/output.json"
 
 f = open(input_file,  encoding="utf-8")
